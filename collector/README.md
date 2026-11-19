@@ -40,8 +40,7 @@ are recorded rather than bypassed. Run `--help` for options.
 ## JSON format and exit status
 
 `schema_version: 1` identifies the JSON format; `collector_version` identifies
-the program. The report is built from structured results, not by parsing the old
-text report:
+the program. The report contains:
 
 - `host`: kernel, architecture, OS, Python and OpenSSL information.
 - `process`: allowlisted container/process metadata, settings and memory-open
@@ -70,13 +69,3 @@ The collector checks process/executable identity again after collection. It does
 not test SOCK_DESTROY permissions, close sockets, alter networking, restart
 processes or change membership/recovery. Only the selected local endpoint is
 health-checked; collect from both serving hosts to assess both.
-
-## Validation
-
-The JSON collector, including executable export, was also run in a temporary
-privileged host-PID/network diagnostic Pod on the vivid-pike etcd-1 worker.
-Stdout matched the archived JSON exactly. Membership, local status/health, typed
-and raw peer metrics, and the expected executable hash were verified. Optional
-`file` and `getenforce` commands were unavailable and recorded. The diagnostic
-Pod was removed. The customer's actual host-shell tools and permissions remain
-to be established by their run.

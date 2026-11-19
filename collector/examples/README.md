@@ -1,6 +1,6 @@
 # Example JSON output
 
-[report.json](report.json) is a sanitized, abridged report based on a lab run.
+[report.json](report.json) is a sanitized, abridged example report.
 It illustrates both stdout and the `report.json` saved inside the archive:
 
 ```sh
@@ -9,12 +9,12 @@ sudo bash collect-etcd-host.sh --include-binary > collection.json
 
 Send back the archive and checksum whose paths appear under `artifacts` in that
 JSON. The archive contains `report.json` and, with `--include-binary`, the
-`etcd-executable` file. Process metadata is inside the report; there is no separate
-`process.json`. The working directory is retained locally.
+`etcd-executable` file. Process metadata is inside the report. The working
+directory is retained locally.
 
 Names, addresses, container/member/cluster identifiers, hashes, and artifact
 paths are illustrative replacements. Socket output is shortened. Software
-versions describe the lab sample; they are not prerequisites. No executable or
+versions are illustrative; they are not prerequisites. No executable or
 archive is included in these examples.
 
 Etcd responses are JSON values under `checks.etcd_status.data`,
