@@ -1,5 +1,0 @@
-# Illustrative terminal output; actual directory names are randomly generated.
-$ sudo bash collect-etcd-host.sh --include-binary
-Report: ./etcd-host-report-EXAMPLE1.tar.gz
-Checksum: ./etcd-host-report-EXAMPLE1.tar.gz.sha256
-Working files retained: ./etcd-host-report-EXAMPLE1

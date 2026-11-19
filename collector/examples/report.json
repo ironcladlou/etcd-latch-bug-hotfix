@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "collector_version": "2.0.0",
+  "started_at": "2026-11-19T01:12:47.833804+00:00",
+  "collection_status": "completed",
+  "checks": {
+    "crictl": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "crictl version 1.35.0\n",
+      "stderr": ""
+    },
+    "ss": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "ss utility, iproute2-6.11.0\n",
+      "stderr": ""
+    },
+    "nsenter": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "nsenter from util-linux 2.37.4\n",
+      "stderr": ""
+    },
+    "curl": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "curl 7.76.1 (x86_64-redhat-linux-gnu) libcurl/7.76.1 OpenSSL/3.2.2 zlib/1.2.11 nghttp2/1.43.0\nRelease-Date: 2021-04-14\nProtocols: file ftp ftps http https \nFeatures: alt-svc AsynchDNS GSS-API HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz NTLM SPNEGO SSL UnixSockets\n",
+      "stderr": ""
+    },
+    "selinux": {
+      "status": "unavailable",
+      "exit_code": null,
+      "error": "[Errno 2] No such file or directory: 'getenforce'"
+    },
+    "ptrace_scope": {
+      "status": "ok",
+      "value": "0"
+    },
+    "executable_format": {
+      "status": "unavailable",
+      "exit_code": null,
+      "error": "[Errno 2] No such file or directory: 'file'"
+    },
+    "etcd_version": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "etcd Version: 3.5.26\nGit SHA: 524f3a42\nGo Version: go1.24.13 (Red Hat 1.24.13-4.el9_6) X:strictfipsruntime\nGo OS/Arch: linux/amd64\n",
+      "stderr": ""
+    },
+    "peer_sockets": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "ESTAB 0      0      192.0.2.12:41910  192.0.2.13:2380  timer:(keepalive,13sec,0) uid:1000000000 ino:2034720 sk:1002 cgroup:/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-pod00000000_0000_0000_0000_000000000001.slice/crio-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.scope <->\n\t ts sack cubic wscale:7,7 rto:201 rtt:0.478/0.154 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3449 bytes_acked:3450 bytes_received:60745450 segs_out:680380 segs_in:681147 data_segs_out:3 data_segs_in:681144 send 1481004184bps lastsnd:22491316 lastrcv:10 lastack:10 pacing_rate 2960460008bps delivery_rate 305137928bps delivered:4 app_limited busy:1ms rcv_rtt:27739.7 rcv_space:187034 rcv_ssthresh:652087 minrtt:0.402 rcv_ooopack:1 snd_wnd:80512\nESTAB 0      0      192.0.2.12:2380  192.0.2.11:40638 timer:(keepalive,14sec,0) uid:1000000000 ino:4316775 sk:13 cgroup:/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-pod00000000_0000_0000_0000_000000000001.slice/crio-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.scope <->\n\t ts sack cubic wscale:7,7 rto:201 rtt:0.483/0.036 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 bytes_sent:19317195 bytes_retrans:96 bytes_acked:19317099 bytes_received:3449 segs_out:210725 segs_in:210509 data_segs_out:210723 data_segs_in:3 send 1465672878bps lastsnd:10 lastrcv:7839778 lastack:10 pacing_rate 2929829280bps delivery_rate 337104760bps delivered:210724 app_limited busy:101189ms retrans:0/1 dsack_dups:1 rcv_rtt:1 rcv_space:56675 rcv_ssthresh:80449 minrtt:0.391 snd_wnd:502272\n[Additional socket records omitted from this example.]\n",
+      "stderr": ""
+    },
+    "client_certificate": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "subject=O=kubernetes, CN=etcd-client\nissuer=OU=openshift, CN=etcd-signer\nnotBefore=Nov 18 16:07:59 2026 GMT\nnotAfter=Nov 18 16:07:59 2027 GMT\n",
+      "stderr": "No extensions in certificate\n"
+    },
+    "etcd_status": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "data": [
+        {
+          "Endpoint": "https://localhost:2379",
+          "Status": {
+            "header": {
+              "cluster_id": 4369,
+              "member_id": 8738,
+              "revision": 101283,
+              "raft_term": 3
+            },
+            "version": "3.5.26",
+            "dbSize": 63569920,
+            "leader": 8738,
+            "raftIndex": 106710,
+            "raftTerm": 3,
+            "raftAppliedIndex": 106710,
+            "dbSizeInUse": 24694784
+          }
+        }
+      ]
+    },
+    "etcd_members": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "data": {
+        "header": {
+          "cluster_id": 4369,
+          "member_id": 8738,
+          "raft_term": 3
+        },
+        "members": [
+          {
+            "ID": 17476,
+            "name": "etcd-2",
+            "peerURLs": [
+              "https://etcd-2.etcd-discovery.clusters-example-guest.svc:2380"
+            ],
+            "clientURLs": [
+              "https://etcd-2.etcd-discovery.clusters-example-guest.svc:2379"
+            ]
+          },
+          {
+            "ID": 8738,
+            "name": "etcd-1",
+            "peerURLs": [
+              "https://etcd-1.etcd-discovery.clusters-example-guest.svc:2380"
+            ],
+            "clientURLs": [
+              "https://etcd-1.etcd-discovery.clusters-example-guest.svc:2379"
+            ]
+          },
+          {
+            "ID": 13107,
+            "name": "etcd-0",
+            "peerURLs": [
+              "https://etcd-0.etcd-discovery.clusters-example-guest.svc:2380"
+            ],
+            "clientURLs": [
+              "https://etcd-0.etcd-discovery.clusters-example-guest.svc:2379"
+            ]
+          }
+        ]
+      }
+    },
+    "etcd_health": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "data": [
+        {
+          "endpoint": "https://localhost:2379",
+          "health": true,
+          "took": "5.731374ms"
+        }
+      ]
+    },
+    "active_peers": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "samples": [
+        {
+          "labels": {
+            "Local": "2222",
+            "Remote": "4444"
+          },
+          "value": 1
+        },
+        {
+          "labels": {
+            "Local": "2222",
+            "Remote": "5555"
+          },
+          "value": 0
+        },
+        {
+          "labels": {
+            "Local": "2222",
+            "Remote": "3333"
+          },
+          "value": 1
+        }
+      ],
+      "raw": "# HELP etcd_network_active_peers The current number of active peer connections.\n# TYPE etcd_network_active_peers gauge\netcd_network_active_peers{Local=\"2222\",Remote=\"4444\"} 1\netcd_network_active_peers{Local=\"2222\",Remote=\"5555\"} 0\netcd_network_active_peers{Local=\"2222\",Remote=\"3333\"} 1\n"
+    }
+  },
+  "runtime_endpoint": "unix:///run/crio/crio.sock",
+  "runtime_endpoint_source": "argument",
+  "scope": "read-only diagnostics; no key contents, datastore files, full environment or full CRI responses",
+  "artifacts": {
+    "report": "/var/tmp/etcd-host-report-EXAMPLE1/report.json",
+    "working_directory": "/var/tmp/etcd-host-report-EXAMPLE1",
+    "archive": "/var/tmp/etcd-host-report-EXAMPLE1.tar.gz",
+    "checksum": "/var/tmp/etcd-host-report-EXAMPLE1.tar.gz.sha256"
+  },
+  "host": {
+    "kernel_release": "5.14.0-687.44.1.el9_8.x86_64",
+    "architecture": "x86_64",
+    "os_release": {
+      "status": "ok",
+      "value": "NAME=\"Red Hat Enterprise Linux\"\nVERSION=\"9.6 (Plow)\"\nID=\"rhel\"\nID_LIKE=\"fedora\"\nVERSION_ID=\"9.6\"\nPLATFORM_ID=\"platform:el9\"\nPRETTY_NAME=\"Red Hat Enterprise Linux 9.6 (Plow)\"\nANSI_COLOR=\"0;31\"\nLOGO=\"fedora-logo-icon\"\nCPE_NAME=\"cpe:/o:redhat:enterprise_linux:9::baseos\"\nHOME_URL=\"https://www.redhat.com/\"\nDOCUMENTATION_URL=\"https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9\"\nBUG_REPORT_URL=\"https://issues.redhat.com/\"\n\nREDHAT_BUGZILLA_PRODUCT=\"Red Hat Enterprise Linux 9\"\nREDHAT_BUGZILLA_PRODUCT_VERSION=9.6\nREDHAT_SUPPORT_PRODUCT=\"Red Hat Enterprise Linux\"\nREDHAT_SUPPORT_PRODUCT_VERSION=\"9.6\""
+    },
+    "python_version": "3.9.21 (main, Apr 16 2026, 00:00:00) \n[GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]",
+    "openssl_version": "OpenSSL 3.2.2 4 Jun 2024"
+  },
+  "candidates": [
+    {
+      "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "namespace": "clusters-example-guest",
+      "pod": "etcd-1"
+    }
+  ],
+  "process": {
+    "pid": 10000,
+    "start_ticks": "100000",
+    "container_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "image": "registry.example.com/openshift/etcd@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "image_ref": "registry.example.com/openshift/etcd@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "pod": {
+      "io.kubernetes.pod.name": "etcd-1",
+      "io.kubernetes.pod.namespace": "clusters-example-guest"
+    },
+    "env": {
+      "ETCD_TRUSTED_CA_FILE": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "ETCD_LISTEN_CLIENT_URLS": "https://192.0.2.12:2379,https://localhost:2379",
+      "ETCD_LISTEN_PEER_URLS": "https://192.0.2.12:2380",
+      "ETCD_LISTEN_METRICS_URLS": "https://0.0.0.0:2382",
+      "ETCD_PEER_TRUSTED_CA_FILE": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "ETCD_NAME": "etcd-1",
+      "ETCD_PEER_CLIENT_CERT_AUTH": "true",
+      "ETCD_KEY_FILE": "/etc/etcd/tls/server/server.key",
+      "ETCD_PEER_KEY_FILE": "/etc/etcd/tls/peer/peer.key",
+      "ETCD_CLIENT_CERT_AUTH": "true",
+      "ETCD_PEER_CERT_FILE": "/etc/etcd/tls/peer/peer.crt",
+      "ETCD_ADVERTISE_CLIENT_URLS": "https://etcd-1.etcd-discovery.clusters-example-guest.svc:2379",
+      "ETCD_CERT_FILE": "/etc/etcd/tls/server/server.crt",
+      "ETCD_INITIAL_ADVERTISE_PEER_URLS": "https://etcd-1.etcd-discovery.clusters-example-guest.svc:2380"
+    },
+    "flags": {},
+    "netns": "net:[4026533000]",
+    "proc_mem_open": {
+      "status": "ok",
+      "memory_read": false
+    }
+  },
+  "executable": {
+    "source": "/proc/10000/exe",
+    "inode": 1000000,
+    "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "exported_file": "etcd-executable"
+  },
+  "tls": {
+    "container_paths": {
+      "ca": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "cert": "/etc/etcd/tls/client/etcd-client.crt",
+      "key": "/etc/etcd/tls/client/etcd-client.key"
+    },
+    "files": {
+      "ca": {
+        "status": "ok",
+        "error": null
+      },
+      "cert": {
+        "status": "ok",
+        "error": null
+      },
+      "key": {
+        "status": "ok",
+        "error": null
+      }
+    }
+  },
+  "process_identity_verified_at_end": true,
+  "finished_at": "2026-11-19T01:12:48.212197+00:00",
+  "example_note": "Sanitized and abridged illustration; identifiers, addresses, hashes and artifact paths are placeholders."
+}
