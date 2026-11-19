@@ -6,16 +6,18 @@ Collect from each reachable, serving etcd member so we can compare their views.
 
 ## Using the collector
 
-Run from the host as root, with Bash, Python 3 and `crictl` access:
+Run from the host as root, with Python 3 and `crictl` access:
 
 ```sh
-sudo bash collect-etcd-host.sh --include-binary > collection.json
+sudo python3 collect-etcd-host.py
 ```
 
-Send the generated archive and checksum listed under `artifacts` in
-`collection.json`. The archive contains a JSON report and a **separate etcd
+The script saves the results and prints the report, archive and checksum paths.
+Send the archive and checksum files. The archive contains a JSON report and a **separate etcd
 executable**, not binary data embedded in JSON. See the [example](examples/README.md)
-for what a report looks like. Use `--help` for connection and certificate options.
+for what a report looks like. The executable is required: if copying it fails,
+collection fails and no archive is produced. Use `--help` for connection and
+certificate options.
 
 ## Collecting manually
 

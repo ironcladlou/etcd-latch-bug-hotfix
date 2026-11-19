@@ -1,7 +1,5 @@
-#!/usr/bin/env bash
-# Single-file, read-only collector. Python stdlib builds the report as JSON.
-set -eu
-exec python3 - "$@" <<'PYTHON'
+#!/usr/bin/env python3
+"""Collect read-only etcd host evidence into a JSON report and binary archive."""
 import argparse
 import datetime
 import hashlib
@@ -15,7 +13,7 @@ import sys
 import tarfile
 import tempfile
 
-VERSION = "3.0.0"
+VERSION = "4.0.0"
 SCHEMA_VERSION = 2
 ALLOWED = {"name", "advertise-client-urls", "listen-client-urls",
            "initial-advertise-peer-urls", "listen-peer-urls", "trusted-ca-file",
@@ -114,22 +112,19 @@ def collect_etcd_arguments(pid):
     return flags
 
 
-def collect_executable(pid, destination=None):
-    """Hash and optionally export the same open executable to reproduce its bits."""
+def collect_executable(pid, destination):
+    """Always export and hash one open executable; never publish a partial copy."""
     digest = hashlib.sha256()
     source = "/proc/{}/exe".format(pid)
-    with open(source, "rb") as src:
+    partial = destination.with_name(destination.name + ".partial")
+    with open(source, "rb") as src, open(str(partial), "xb") as dst:
         inode = os.fstat(src.fileno()).st_ino
-        if destination:
-            with open(str(destination), "xb") as dst:
-                for block in iter(lambda: src.read(1024 * 1024), b""):
-                    digest.update(block)
-                    dst.write(block)
-        else:
-            for block in iter(lambda: src.read(1024 * 1024), b""):
-                digest.update(block)
+        for block in iter(lambda: src.read(1024 * 1024), b""):
+            digest.update(block)
+            dst.write(block)
+    partial.rename(destination)
     return {"source": source, "inode": inode, "sha256": digest.hexdigest(),
-            "exported_file": destination.name if destination else None}
+            "exported_file": destination.name}
 
 
 def parse_active_peer_metrics(result):
@@ -290,7 +285,7 @@ def collect(args, report, work):
     report["configuration"] = {}
     report["configuration"]["env"] = collect_etcd_environment(pid)
     report["configuration"]["flags"] = collect_etcd_arguments(pid)
-    report["executable"] = collect_executable(pid, work / "etcd-executable" if args.include_binary else None)
+    report["executable"] = collect_executable(pid, work / "etcd-executable")
     report["tls"] = collect_client_tls_paths(pid, args)
     checks = report["checks"]
     checks["etcd_version"] = collect_etcd_version(cri, cid)
@@ -318,16 +313,15 @@ def create_output_directory(args, report):
 
 
 def write_report(work, report):
-    """Persist the same JSON object that will be emitted on stdout."""
+    """Save structured evidence in the results directory and archive."""
     (work / "report.json").write_text(json.dumps(report, indent=2) + "\n")
 
 
 def create_archive(work, archive):
-    """Package the report and optional executable; include no other working files."""
+    """Require both report and executable in every archive."""
     with tarfile.open(str(archive), "w:gz") as tar:
         tar.add(str(work / "report.json"), arcname=work.name + "/report.json")
-        if (work / "etcd-executable").exists():
-            tar.add(str(work / "etcd-executable"), arcname=work.name + "/etcd-executable")
+        tar.add(str(work / "etcd-executable"), arcname=work.name + "/etcd-executable")
 
 
 def write_archive_checksum(archive):
@@ -339,14 +333,34 @@ def write_archive_checksum(archive):
     pathlib.Path(str(archive) + ".sha256").write_text(digest.hexdigest() + "  " + archive.name + "\n")
 
 
+def print_results(report):
+    """Tell the operator where saved evidence lives, without requiring redirection."""
+    completed = report["collection_status"] == "completed"
+    if completed:
+        print("Collection complete.")
+    else:
+        print("Collection failed: " + report.get("error", "could not package results"), file=sys.stderr)
+    if report.get("packaging_error"):
+        print("Could not save all results: " + report["packaging_error"], file=sys.stderr)
+    artifacts = report.get("artifacts", {})
+    for name, label in [("report", "Report"), ("archive", "Archive"), ("checksum", "Checksum")]:
+        path = artifacts.get(name)
+        if path and os.path.isfile(path):
+            print("{}: {}".format(label, path))
+    if completed:
+        issues = sum(check["status"] != "ok" for check in report["checks"].values())
+        if issues:
+            print("{} check(s) need attention; see the report for details.".format(issues))
+        print("Send the archive and checksum files.")
+
+
 def main():
-    parser = argparse.ArgumentParser(prog="collect-etcd-host.sh", description="Read-only etcd host prerequisites; emits JSON on stdout.")
+    parser = argparse.ArgumentParser(prog="collect-etcd-host.py", description="Read-only etcd host collection; saves a JSON report and executable archive.")
     parser.add_argument("--container", help="running etcd container ID; auto-select if exactly one")
     parser.add_argument("--runtime-endpoint", help="otherwise use host crictl configuration")
     parser.add_argument("--cacert", default="/etc/etcd/tls/etcd-ca/ca.crt", help="CA path inside container")
     parser.add_argument("--cert", default="/etc/etcd/tls/client/etcd-client.crt", help="client cert path inside container")
     parser.add_argument("--key", default="/etc/etcd/tls/client/etcd-client.key", help="client key path inside container")
-    parser.add_argument("--include-binary", action="store_true", help="include running executable; no data files")
     parser.add_argument("--output-dir", default=".", help="existing directory for report archive")
     parser.add_argument("--version", action="version", version=VERSION)
     args = parser.parse_args()
@@ -366,7 +380,15 @@ def main():
     except (OSError, ValueError, KeyError, TypeError, RuntimeError) as e:
         report["error"] = str(e)
     report["finished_at"] = utc()
-    if work:
+    if work and "executable" not in report:
+        # Partial JSON is useful for troubleshooting; it is not a usable package.
+        report["artifacts"]["archive"] = None
+        report["artifacts"]["checksum"] = None
+        try:
+            write_report(work, report)
+        except OSError as error:
+            report["packaging_error"] = str(error)
+    elif work:
         try:
             write_report(work, report)
             archive = pathlib.Path(report["artifacts"]["archive"])
@@ -374,15 +396,16 @@ def main():
             write_archive_checksum(archive)
         except OSError as e:
             report.update(collection_status="failed", packaging_error=str(e))
+            report["artifacts"]["archive"] = None
+            report["artifacts"]["checksum"] = None
             # Keep the partial JSON current even when archive generation failed.
             try:
                 write_report(work, report)
             except OSError:
                 pass
-    print(json.dumps(report, indent=2))
+    print_results(report)
     return 0 if report["collection_status"] == "completed" else 2
 
 
 if __name__ == "__main__":
     sys.exit(main())
-PYTHON

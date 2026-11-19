@@ -1,15 +1,24 @@
 # Example JSON report
 
-[report.json](report.json) illustrates both stdout and the `report.json` inside
-the archive:
+[report.json](report.json) illustrates the report saved in the results directory
+and included in the archive. Run:
 
 ```sh
-sudo bash collect-etcd-host.sh --include-binary > collection.json
+sudo python3 collect-etcd-host.py
 ```
 
-Send back the archive and checksum named under `artifacts`. The archive contains
-`report.json` and, with `--include-binary`, a separate `etcd-executable` binary
-file. JSON contains its hash and filename, never its bytes. No executable or
+The script prints the saved result locations:
+
+```text
+Collection complete.
+Report: /var/tmp/etcd-host-report-EXAMPLE1/report.json
+Archive: /var/tmp/etcd-host-report-EXAMPLE1.tar.gz
+Checksum: /var/tmp/etcd-host-report-EXAMPLE1.tar.gz.sha256
+Send the archive and checksum files.
+```
+
+Send back the archive and checksum. The archive contains `report.json` and a
+separate `etcd-executable` binary file. JSON contains its hash and filename, never its bytes. No executable or
 archive is included in this example.
 
 Identities, addresses, hashes, certificate metadata, resolver settings and
