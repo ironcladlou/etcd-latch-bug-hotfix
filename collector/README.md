@@ -6,6 +6,9 @@ Copy `collect-etcd-host.sh` to each of the two serving etcd hosts and run:
 sudo bash collect-etcd-host.sh --include-binary
 ```
 
+See [example report and terminal output](examples/README.md) for the layout,
+failed-check markers, and files to return.
+
 Send back the printed `.tar.gz` and `.sha256` files from each host. The executable
 is needed to validate an exact binary profile; omit `--include-binary` if only a
 textual report can initially be shared. Reports include internal names and IPs.
