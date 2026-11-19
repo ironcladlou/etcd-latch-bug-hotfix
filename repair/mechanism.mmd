@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant T as Repair tool
+    participant K as Linux kernel
+    participant A as etcd A
+    participant B as etcd B
+    Note over A,B: Streams work, but A reports B inactive
+    T->>A: Check serving quorum and identify stream reader
+    T->>K: Match validated binary, FD, inode and socket cookie
+    T->>K: SOCK_DESTROY one reader connection
+    K-->>A: Reader receives connection error
+    A->>B: Normal reader reconnects
+    B-->>A: Stream established
+    A->>A: Mark B active (peer metric = 1)
+    T->>A: Verify stable active status, quorum and Raft progress
+    Note over T,B: No process restart or membership change
