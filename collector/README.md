@@ -73,14 +73,6 @@ health-checked; collect from both serving hosts to assess both.
 
 ## Validation
 
-```sh
-python3 -m unittest discover -s collector -p test_collector.py -v
-```
-
-Eight local tests cover JSON integer precision, command failures/timeouts,
-metadata/metric filtering, and matching stdout/file/archive JSON with correct
-archive checksums, including a fatal-error partial report.
-
 The JSON collector, including executable export, was also run in a temporary
 privileged host-PID/network diagnostic Pod on the vivid-pike etcd-1 worker.
 Stdout matched the archived JSON exactly. Membership, local status/health, typed
