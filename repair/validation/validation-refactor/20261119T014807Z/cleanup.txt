@@ -1,0 +1,1 @@
+pod "vivid-pike-repair-validation" deleted from default namespace

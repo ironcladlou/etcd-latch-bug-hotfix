@@ -1,0 +1,14 @@
+{"time": "2026-11-19T01:46:14.307852+00:00", "message": "preflight_passed", "node": "ip-10-0-140-46.ec2.internal", "process": {"pid": 28155, "start_ticks": "282728", "exe_inode": 289449562, "netns_inode": 4026533536}, "support": {"profile_id": "openshift-etcd-3.5.26-amd64", "revision": 1, "profile_sha256": "4ddfad50962318dbed07707c2949ab4fff90be229ca17f100a7691d0b22397f4", "checks": [{"property": "executable_sha256", "expected": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66", "observed": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66", "matched": true}, {"property": "architecture", "expected": "x86_64", "observed": "x86_64", "matched": true}], "matched": true}}
+{"time": "2026-11-19T01:46:18.102253+00:00", "message": "replacing_only_etcd_0", "old_ip": "10.132.0.123"}
+{"time": "2026-11-19T01:46:29.279519+00:00", "message": "fault_control", "action": "arm", "ip": "10.132.0.132"}
+{"time": "2026-11-19T01:46:31.474207+00:00", "message": "natural_pipeline_held", "capture": {"capture": {"Mode": 2, "SrcPort": 57068, "DstPort": 2380, "FD": 11, "DstIP": 2214626314, "SrcIP": 419464714, "At": 37514741340710, "Deadline": 37604741340710, "G": 824637657920, "PostAt": 37514733802482, "Drops": 5, "AllowedIP": 2214626314, "Pad": 0}, "destinationIP": "10.132.0.132", "sourceIP": "10.134.0.25", "time": "2026-11-19T01:46:31.436315466Z"}}
+{"time": "2026-11-19T01:46:44.979312+00:00", "message": "fault_control", "action": "fail", "ip": ""}
+{"time": "2026-11-19T01:46:46.032918+00:00", "message": "latch_reproduced", "active_peers": {"3a3d2cf07731e037": 1, "961113c1699ee884": 0, "d44c1b554fa67639": 0}}
+{"time": "2026-11-19T01:46:46.408699+00:00", "message": "fault_control", "action": "quit", "ip": ""}
+{"time": "2026-11-19T01:46:58.313140+00:00", "message": "collection_and_support_verified", "schema": 2, "binary_sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66"}
+{"time": "2026-11-19T01:46:59.471681+00:00", "message": "inspect_result", "exit": 0, "outcome": "candidate_identified_no_action", "error": null}
+{"time": "2026-11-19T01:47:11.985587+00:00", "message": "repair_result", "exit": 0, "outcome": "reconnected_and_verified", "error": null}
+{"time": "2026-11-19T01:47:11.985893+00:00", "message": "repair_verified", "mutations": 1, "snapshots": 10}
+{"time": "2026-11-19T01:47:12.674949+00:00", "message": "inspect_result", "exit": 0, "outcome": "already_active_no_action", "error": null}
+{"time": "2026-11-19T01:47:27.041003+00:00", "message": "loop_completed", "evidence": "bin/etcd-peer-repair/validation-refactor/20261119T014608Z"}
+{"time": "2026-11-19T01:47:29.019661+00:00", "message": "debug_pod_removed"}

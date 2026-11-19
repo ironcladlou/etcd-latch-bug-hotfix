@@ -1,0 +1,446 @@
+{
+  "pods": [
+    {
+      "name": "etcd-0",
+      "ip": "10.132.0.133",
+      "ready": true
+    },
+    {
+      "name": "etcd-1",
+      "ip": "10.134.0.25",
+      "ready": true
+    },
+    {
+      "name": "etcd-2",
+      "ip": "10.133.0.59",
+      "ready": true
+    }
+  ],
+  "members": {
+    "etcd-0": {
+      "metrics": "etcd_network_active_peers{Local=\"d44c1b554fa67639\",Remote=\"3a3d2cf07731e037\"} 1\netcd_network_active_peers{Local=\"d44c1b554fa67639\",Remote=\"9160386341df7a4b\"} 1\n",
+      "status": [
+        {
+          "Endpoint": "https://localhost:2379",
+          "Status": {
+            "header": {
+              "cluster_id": 2040264540507847989,
+              "member_id": 15297632087493211705,
+              "revision": 106106,
+              "raft_term": 3
+            },
+            "version": "3.5.26",
+            "dbSize": 64036864,
+            "leader": 10475434732221856331,
+            "raftIndex": 111825,
+            "raftTerm": 3,
+            "raftAppliedIndex": 111825,
+            "dbSizeInUse": 24489984
+          }
+        }
+      ],
+      "health": "https://localhost:2379 is healthy: successfully committed proposal: took = 8.280902ms\n"
+    },
+    "etcd-1": {
+      "metrics": "etcd_network_active_peers{Local=\"9160386341df7a4b\",Remote=\"3a3d2cf07731e037\"} 1\netcd_network_active_peers{Local=\"9160386341df7a4b\",Remote=\"961113c1699ee884\"} 0\netcd_network_active_peers{Local=\"9160386341df7a4b\",Remote=\"d44c1b554fa67639\"} 1\n",
+      "status": [
+        {
+          "Endpoint": "https://localhost:2379",
+          "Status": {
+            "header": {
+              "cluster_id": 2040264540507847989,
+              "member_id": 10475434732221856331,
+              "revision": 106106,
+              "raft_term": 3
+            },
+            "version": "3.5.26",
+            "dbSize": 63569920,
+            "leader": 10475434732221856331,
+            "raftIndex": 111825,
+            "raftTerm": 3,
+            "raftAppliedIndex": 111825,
+            "dbSizeInUse": 24489984
+          }
+        }
+      ],
+      "health": "https://localhost:2379 is healthy: successfully committed proposal: took = 5.818794ms\n"
+    },
+    "etcd-2": {
+      "metrics": "etcd_network_active_peers{Local=\"3a3d2cf07731e037\",Remote=\"9160386341df7a4b\"} 1\netcd_network_active_peers{Local=\"3a3d2cf07731e037\",Remote=\"d44c1b554fa67639\"} 1\n",
+      "status": [
+        {
+          "Endpoint": "https://localhost:2379",
+          "Status": {
+            "header": {
+              "cluster_id": 2040264540507847989,
+              "member_id": 4196559839082700855,
+              "revision": 106107,
+              "raft_term": 3
+            },
+            "version": "3.5.26",
+            "dbSize": 63569920,
+            "leader": 10475434732221856331,
+            "raftIndex": 111826,
+            "raftTerm": 3,
+            "raftAppliedIndex": 111826,
+            "dbSizeInUse": 24522752
+          }
+        }
+      ],
+      "health": "https://localhost:2379 is healthy: successfully committed proposal: took = 7.373012ms\n"
+    }
+  },
+  "membership": {
+    "header": {
+      "cluster_id": 2040264540507847989,
+      "member_id": 10475434732221856331,
+      "raft_term": 3
+    },
+    "members": [
+      {
+        "ID": 4196559839082700855,
+        "name": "etcd-2",
+        "peerURLs": [
+          "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "clientURLs": [
+          "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+        ]
+      },
+      {
+        "ID": 10475434732221856331,
+        "name": "etcd-1",
+        "peerURLs": [
+          "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "clientURLs": [
+          "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+        ]
+      },
+      {
+        "ID": 15297632087493211705,
+        "name": "etcd-0",
+        "peerURLs": [
+          "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "clientURLs": [
+          "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+        ]
+      }
+    ]
+  },
+  "hostedcluster_conditions": [
+    {
+      "lastTransitionTime": "2026-11-18T16:08:55Z",
+      "message": "All is well",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidAWSIdentityProvider"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:09:32Z",
+      "message": "Payload loaded version=\"4.20.23\" image=\"registry.ci.openshift.org/ocp/release@sha256:4a03c010c9c554dc86066a7130002cc8c0bdd13da6207a7eab299f1013690dbd\" architecture=\"amd64\"",
+      "observedGeneration": 3,
+      "reason": "PayloadLoaded",
+      "status": "True",
+      "type": "ClusterVersionReleaseAccepted"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:15:27Z",
+      "message": "Condition not found in the CVO.",
+      "observedGeneration": 3,
+      "reason": "FromClusterVersion",
+      "status": "True",
+      "type": "ClusterVersionUpgradeable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:15:27Z",
+      "message": "Done applying 4.20.23",
+      "observedGeneration": 3,
+      "reason": "FromClusterVersion",
+      "status": "True",
+      "type": "ClusterVersionAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:15:27Z",
+      "message": "",
+      "observedGeneration": 3,
+      "reason": "FromClusterVersion",
+      "status": "True",
+      "type": "ClusterVersionSucceeding"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:15:27Z",
+      "message": "Cluster version is 4.20.23",
+      "observedGeneration": 3,
+      "reason": "FromClusterVersion",
+      "status": "False",
+      "type": "ClusterVersionProgressing"
+    },
+    {
+      "lastTransitionTime": "2026-11-19T01:42:00Z",
+      "message": "The hosted cluster is not degraded",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "False",
+      "type": "Degraded"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:08:31Z",
+      "message": "",
+      "observedGeneration": 3,
+      "reason": "QuorumAvailable",
+      "status": "True",
+      "type": "EtcdAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:08:48Z",
+      "message": "Kube APIServer deployment is available",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "KubeAPIServerAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:08:04Z",
+      "message": "All is well",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "InfrastructureReady"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "External DNS is not configured",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "ExternalDNSReachable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:55Z",
+      "message": "Configuration passes validation",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidHostedControlPlaneConfiguration"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:08:03Z",
+      "message": "All is well",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidReleaseInfo"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:08:03Z",
+      "message": "Identity provider configuration is valid",
+      "observedGeneration": 3,
+      "reason": "IDPConfigurationValid",
+      "status": "True",
+      "type": "ValidIDPConfiguration"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Condition not found in the HCP",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "HostedClusterRestoredFromBackup"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Condition not found in the HCP",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "DataPlaneConnectionAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Condition not found in the HCP",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "ControlPlaneConnectionAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Condition not found in the HCP",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "EtcdBackupSucceeded"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Condition not found in the HCP",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "ConfigOperatorReconciliationSucceeded"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:51Z",
+      "message": "No deprecated configuration is in use",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "False",
+      "type": "HostedClusterConfigurationDeprecated"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "AutoNode provisioner is not configured",
+      "observedGeneration": 3,
+      "reason": "AutoNodeNotConfigured",
+      "status": "False",
+      "type": "AutoNodeEnabled"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T18:47:04Z",
+      "message": "The hosted control plane is available",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "Available"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "AWSEndpointService conditions not found",
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "AWSEndpointAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "AWSEndpointService conditions not found",
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "AWSEndpointServiceAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Configuration passes validation",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidConfiguration"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "HostedCluster is supported by operator configuration",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "SupportedHostedCluster"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "No proxy CA bundle configured",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidProxyConfiguration"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T18:51:58Z",
+      "message": "Ignition server deployment is available",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "IgnitionEndpointAvailable"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Reconciliation active on resource",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ReconciliationActive"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "Release image is valid",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidReleaseImage"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:49Z",
+      "message": "HostedCluster is at expected version",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "False",
+      "type": "Progressing"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:50Z",
+      "message": "Required platform credentials are found",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "PlatformCredentialsFound"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:50Z",
+      "message": "The control plane operator supports deterministic load balancer IP configuration",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "DeterministicLBIPSupported"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:50Z",
+      "message": "OIDC configuration is valid",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "ValidOIDCConfiguration"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:51Z",
+      "message": "Reconciliation completed successfully",
+      "observedGeneration": 3,
+      "reason": "ReconciliatonSucceeded",
+      "status": "True",
+      "type": "ReconciliationSucceeded"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:07:55Z",
+      "message": "AWS KMS is not configured",
+      "observedGeneration": 3,
+      "reason": "StatusUnknown",
+      "status": "Unknown",
+      "type": "ValidAWSKMSConfig"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:08:56Z",
+      "message": "All is well",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "True",
+      "type": "AWSDefaultSecurityGroupCreated"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T16:09:32Z",
+      "message": "The update channel has not been configured.",
+      "observedGeneration": 3,
+      "reason": "NoChannel",
+      "status": "False",
+      "type": "ClusterVersionRetrievedUpdates"
+    },
+    {
+      "lastTransitionTime": "2026-11-18T18:58:21Z",
+      "message": "Etcd recovery job succeeded.",
+      "observedGeneration": 3,
+      "reason": "AsExpected",
+      "status": "False",
+      "type": "EtcdRecoveryActive"
+    }
+  ],
+  "recovery_jobs": [],
+  "debug_pod_present": false
+}

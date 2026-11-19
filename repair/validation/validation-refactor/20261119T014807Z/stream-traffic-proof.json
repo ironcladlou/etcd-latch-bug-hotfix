@@ -1,0 +1,152 @@
+{
+  "first": "0      0      10.134.0.25:35156 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=256))\n\t cubic wscale:7,7 rto:201 rtt:0.609/0.239 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3505 bytes_acked:3506 bytes_received:2852 segs_out:6 segs_in:4 data_segs_out:3 data_segs_in:1 send 1162430213bps lastsnd:806 lastrcv:807 lastack:805 pacing_rate 2322000816bps delivery_rate 265138576bps delivered:4 app_limited busy:1ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.449 snd_wnd:80512                                                                                                          \n0      0      10.134.0.25:41910  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=24)) \n\t cubic wscale:7,7 rto:201 rtt:0.478/0.154 ato:53 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3449 bytes_acked:3450 bytes_received:66697052 segs_out:746873 segs_in:747747 data_segs_out:3 data_segs_in:747744 send 1481004184bps lastsnd:24637688 lastrcv:82 lastack:82 pacing_rate 2960460008bps delivery_rate 305137928bps delivered:4 app_limited busy:1ms rcv_rtt:27739.7 rcv_space:187034 rcv_ssthresh:652087 minrtt:0.402 rcv_ooopack:1 snd_wnd:80512                                                    \n0      0      10.134.0.25:35172 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=31)) \n\t cubic wscale:7,7 rto:201 rtt:0.616/0.242 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3505 bytes_acked:3506 bytes_received:2852 segs_out:6 segs_in:4 data_segs_out:3 data_segs_in:1 send 1149220779bps lastsnd:804 lastrcv:807 lastack:803 pacing_rate 2295646528bps delivery_rate 269171096bps delivered:4 app_limited busy:2ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.453 snd_wnd:80512                                                                                                          \n0      0      10.134.0.25:41922  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=27)) \n\t cubic wscale:7,7 rto:201 rtt:0.544/0.212 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3448 bytes_acked:3449 bytes_received:416917 segs_out:14789 segs_in:14787 data_segs_out:3 data_segs_in:14784 send 1301323529bps lastsnd:24637689 lastrcv:1027 lastack:1027 pacing_rate 2599063784bps delivery_rate 314631104bps delivered:4 app_limited busy:1ms rcv_rtt:465438 rcv_space:64957 rcv_ssthresh:80089 minrtt:0.396 snd_wnd:80512                                                                      \n0      0      10.134.0.25:2380   10.133.0.54:32958 users:((\"etcd\",pid=28155,fd=22)) \n\t cubic wscale:7,7 rto:201 rtt:0.464/0.014 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 bytes_sent:1172465 bytes_acked:1172465 bytes_received:1093637 segs_out:6163 segs_in:12325 data_segs_out:6161 data_segs_in:6162 send 1525689655bps lastsnd:1693 lastrcv:1693 lastack:1693 pacing_rate 3050557496bps delivery_rate 169764984bps delivered:6162 app_limited busy:2807ms rcv_rtt:1 rcv_space:56675 rcv_ssthresh:85386 minrtt:0.417 snd_wnd:351360                                                                \n0      0      10.134.0.25:35184 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=514))\n\t cubic wscale:7,7 rto:201 rtt:0.596/0.238 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3449 bytes_acked:3450 bytes_received:2852 segs_out:6 segs_in:4 data_segs_out:3 data_segs_in:1 send 1187785235bps lastsnd:792 lastrcv:795 lastack:791 pacing_rate 2372087952bps delivery_rate 288358448bps delivered:4 app_limited busy:2ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.433 snd_wnd:80512                                                                                                          \n0      0      10.134.0.25:40350  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=35)) \n\t cubic wscale:7,7 rto:201 rtt:0.619/0.039 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:448661 bytes_acked:448662 bytes_received:456277 segs_out:5187 segs_in:2595 data_segs_out:2593 data_segs_in:2592 send 1143651050bps lastsnd:3155 lastrcv:3154 lastack:3154 pacing_rate 2284994952bps delivery_rate 266135336bps delivered:2594 app_limited busy:1660ms rcv_rtt:345868 rcv_space:64977 rcv_ssthresh:350278 minrtt:0.445 snd_wnd:85504                                                               \n0      0      10.134.0.25:2380   10.133.0.54:32960 users:((\"etcd\",pid=28155,fd=28)) \n\t cubic wscale:7,7 rto:201 rtt:0.538/0.032 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:15 bytes_sent:59157286 bytes_retrans:95 bytes_acked:59157191 bytes_received:3449 segs_out:652326 segs_in:651828 data_segs_out:652324 data_segs_in:3 send 1973754647bps lastsnd:83 lastrcv:24637686 lastack:83 pacing_rate 3944759688bps delivery_rate 383350176bps delivered:652325 app_limited busy:346295ms retrans:0/1 dsack_dups:1 rcv_rtt:1 rcv_space:56675 rcv_ssthresh:80449 minrtt:0.438 snd_wnd:567808                 \n0      0      10.134.0.25:35186 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=515))\n\t cubic wscale:7,7 rto:201 rtt:0.604/0.233 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3448 bytes_acked:3449 bytes_received:2852 segs_out:6 segs_in:4 data_segs_out:3 data_segs_in:1 send 1172052980bps lastsnd:794 lastrcv:795 lastack:793 pacing_rate 2340715016bps delivery_rate 273328184bps delivered:4 app_limited busy:2ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.455 snd_wnd:80512                                                                                                          \n0      0      10.134.0.25:41890  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=16)) \n\t cubic wscale:7,7 rto:201 rtt:0.599/0.025 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 ssthresh:105 bytes_sent:64861748 bytes_acked:64861749 bytes_received:1173056 segs_out:19548 segs_in:7905 data_segs_out:13383 data_segs_in:6164 send 1181836394bps lastsnd:2899 lastrcv:2898 lastack:2898 pacing_rate 2361209088bps delivery_rate 4890500560bps delivered:13384 busy:3909ms rwnd_limited:60ms(1.5%) reord_seen:1 rcv_rtt:221291 rcv_space:64997 rcv_ssthresh:350520 minrtt:0.444 snd_wnd:3164928              \n0      0      10.134.0.25:2380   10.133.0.54:32962 users:((\"etcd\",pid=28155,fd=29)) \n\t cubic wscale:7,7 rto:201 rtt:0.51/0.033 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 ssthresh:20 bytes_sent:94238576 bytes_retrans:2751 bytes_acked:94235825 bytes_received:3448 segs_out:130697 segs_in:129603 data_segs_out:130695 data_segs_in:3 send 1388078431bps lastsnd:144 lastrcv:24637686 lastack:143 pacing_rate 1664470240bps delivery_rate 2528285712bps delivered:130696 busy:61095ms retrans:0/1 dsack_dups:1 reord_seen:3 rcv_rtt:1 rcv_space:56675 rcv_ssthresh:80449 minrtt:0.447 snd_wnd:2666496\n0      1976   10.134.0.25:35146 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=11)) \n\t cubic wscale:7,7 rto:202 rtt:1.95/1.068 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:1 ssthresh:7 bytes_sent:6961 bytes_retrans:2980 bytes_acked:1520 bytes_received:2852 segs_out:9 segs_in:3 data_segs_out:6 data_segs_in:1 send 36303590bps lastsnd:156 lastrcv:878 lastack:878 pacing_rate 726025248bps delivery_rate 92177080bps delivered:2 app_limited busy:877ms unacked:1 retrans:0/2 lost:1 rcv_space:56687 rcv_ssthresh:74385 notsent:486 minrtt:0.768 snd_wnd:74496                                       \n0      0      10.134.0.25:35154 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=13)) \n\t cubic wscale:7,7 rto:201 rtt:0.574/0.22 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3505 bytes_acked:3506 bytes_received:2852 segs_out:6 segs_in:4 data_segs_out:3 data_segs_in:1 send 1233310105bps lastsnd:826 lastrcv:828 lastack:825 pacing_rate 2464473448bps delivery_rate 274920384bps delivered:4 app_limited busy:1ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.413 snd_wnd:80512                                                                                                           \n",
+  "second": "0      0      10.134.0.25:35156 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=256))\n\t cubic wscale:7,7 rto:201 rtt:0.553/0.054 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:13 bytes_sent:521555 bytes_acked:521556 bytes_received:5804 segs_out:90 segs_in:49 data_segs_out:86 data_segs_in:25 send 1664188065bps lastsnd:850 lastrcv:850 lastack:850 pacing_rate 3328376128bps delivery_rate 856354832bps delivered:87 app_limited busy:15ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.446 snd_wnd:656768                                                                                              \n0      0      10.134.0.25:41910  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=24)) \n\t cubic wscale:7,7 rto:201 rtt:0.478/0.154 ato:42 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3449 bytes_acked:3450 bytes_received:66701687 segs_out:746925 segs_in:747799 data_segs_out:3 data_segs_in:747796 send 1481004184bps lastsnd:24639168 lastrcv:19 lastack:19 pacing_rate 2960460008bps delivery_rate 305137928bps delivered:4 app_limited busy:1ms rcv_rtt:27739.7 rcv_space:187034 rcv_ssthresh:652087 minrtt:0.402 rcv_ooopack:1 snd_wnd:80512                                                   \n0      0      10.134.0.25:35172 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=31)) \n\t cubic wscale:7,7 rto:201 rtt:0.56/0.088 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:15 bytes_sent:479042 bytes_acked:479043 bytes_received:5871 segs_out:86 segs_in:48 data_segs_out:81 data_segs_in:25 send 1896214286bps lastsnd:654 lastrcv:654 lastack:654 pacing_rate 3790736272bps delivery_rate 879403720bps delivered:82 app_limited busy:16ms rcv_space:56687 rcv_ssthresh:80089 minrtt:0.443 snd_wnd:660736                                                                                               \n0      0      10.134.0.25:41922  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=27)) \n\t cubic wscale:7,7 rto:201 rtt:0.544/0.212 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3448 bytes_acked:3449 bytes_received:416945 segs_out:14790 segs_in:14788 data_segs_out:3 data_segs_in:14785 send 1301323529bps lastsnd:24639169 lastrcv:840 lastack:840 pacing_rate 2599063784bps delivery_rate 314631104bps delivered:4 app_limited busy:1ms rcv_rtt:465438 rcv_space:64957 rcv_ssthresh:80089 minrtt:0.396 snd_wnd:80512                                                                       \n0      0      10.134.0.25:2380   10.133.0.54:32958 users:((\"etcd\",pid=28155,fd=22)) \n\t cubic wscale:7,7 rto:201 rtt:0.464/0.014 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 bytes_sent:1172465 bytes_acked:1172465 bytes_received:1093637 segs_out:6163 segs_in:12325 data_segs_out:6161 data_segs_in:6162 send 1525689655bps lastsnd:3173 lastrcv:3173 lastack:3173 pacing_rate 3050557496bps delivery_rate 169764984bps delivered:6162 app_limited busy:2807ms rcv_rtt:1 rcv_space:56675 rcv_ssthresh:85386 minrtt:0.417 snd_wnd:351360                                                               \n0      0      10.134.0.25:35184 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=514))\n\t cubic wscale:7,7 rto:201 rtt:0.596/0.238 ato:42 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3449 bytes_acked:3450 bytes_received:10985 segs_out:61 segs_in:88 data_segs_out:3 data_segs_in:85 send 1187785235bps lastsnd:2272 lastrcv:20 lastack:20 pacing_rate 2372087952bps delivery_rate 288358448bps delivered:4 app_limited busy:2ms rcv_space:56687 rcv_ssthresh:101650 minrtt:0.433 snd_wnd:80512                                                                                                     \n0      0      10.134.0.25:40350  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=35)) \n\t cubic wscale:7,7 rto:201 rtt:0.625/0.042 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:448833 bytes_acked:448834 bytes_received:456452 segs_out:5189 segs_in:2596 data_segs_out:2594 data_segs_in:2593 send 1132672000bps lastsnd:633 lastrcv:632 lastack:632 pacing_rate 2262628840bps delivery_rate 266135336bps delivered:2595 app_limited busy:1661ms rcv_rtt:345868 rcv_space:64977 rcv_ssthresh:350278 minrtt:0.445 snd_wnd:85504                                                                 \n0      0      10.134.0.25:2380   10.133.0.54:32960 users:((\"etcd\",pid=28155,fd=28)) \n\t cubic wscale:7,7 rto:201 rtt:0.534/0.044 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:15 bytes_sent:59161675 bytes_retrans:95 bytes_acked:59161580 bytes_received:3449 segs_out:652374 segs_in:651876 data_segs_out:652372 data_segs_in:3 send 1988539326bps lastsnd:20 lastrcv:24639166 lastack:20 pacing_rate 3977078648bps delivery_rate 383350176bps delivered:652373 app_limited busy:346320ms retrans:0/1 dsack_dups:1 rcv_rtt:1 rcv_space:56675 rcv_ssthresh:80449 minrtt:0.438 snd_wnd:567808                \n0      0      10.134.0.25:35186 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=515))\n\t cubic wscale:7,7 rto:201 rtt:0.604/0.233 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3448 bytes_acked:3449 bytes_received:3021 segs_out:7 segs_in:5 data_segs_out:3 data_segs_in:2 send 1172052980bps lastsnd:2274 lastrcv:867 lastack:867 pacing_rate 2340715016bps delivery_rate 273328184bps delivered:4 app_limited busy:2ms rcv_space:56687 rcv_ssthresh:80089 minrtt:0.455 snd_wnd:80512                                                                                                        \n0      0      10.134.0.25:41890  10.133.0.54:2380  users:((\"etcd\",pid=28155,fd=16)) \n\t cubic wscale:7,7 rto:201 rtt:0.593/0.025 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 ssthresh:105 bytes_sent:64861925 bytes_acked:64861926 bytes_received:1173246 segs_out:19550 segs_in:7906 data_segs_out:13384 data_segs_in:6165 send 1193794266bps lastsnd:380 lastrcv:379 lastack:379 pacing_rate 2385074752bps delivery_rate 4890500560bps delivered:13385 busy:3910ms rwnd_limited:60ms(1.5%) reord_seen:1 rcv_rtt:221291 rcv_space:64997 rcv_ssthresh:350520 minrtt:0.444 snd_wnd:3164928                \n0      0      10.134.0.25:35196 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=661))\n\t cubic wscale:7,7 rto:201 rtt:0.547/0.202 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3181 bytes_acked:3182 bytes_received:3027 segs_out:7 segs_in:5 data_segs_out:3 data_segs_in:2 send 1294186472bps lastsnd:626 lastrcv:625 lastack:625 pacing_rate 2587190496bps delivery_rate 287188640bps delivered:4 app_limited busy:1ms rcv_space:56687 rcv_ssthresh:80089 minrtt:0.436 snd_wnd:80512                                                                                                         \n0      0      10.134.0.25:2380   10.133.0.54:32962 users:((\"etcd\",pid=28155,fd=29)) \n\t cubic wscale:7,7 rto:201 rtt:0.506/0.019 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 ssthresh:20 bytes_sent:94239700 bytes_retrans:2751 bytes_acked:94236949 bytes_received:3448 segs_out:130702 segs_in:129608 data_segs_out:130700 data_segs_in:3 send 1399051383bps lastsnd:32 lastrcv:24639166 lastack:32 pacing_rate 1676376904bps delivery_rate 2528285712bps delivered:130701 busy:61097ms retrans:0/1 dsack_dups:1 reord_seen:3 rcv_rtt:1 rcv_space:56675 rcv_ssthresh:80449 minrtt:0.447 snd_wnd:2666496\n0      1976   10.134.0.25:35146 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=11)) \n\t cubic wscale:7,7 rto:202 rtt:1.95/1.068 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:1 ssthresh:7 bytes_sent:11431 bytes_retrans:7450 bytes_acked:1520 bytes_received:2852 segs_out:12 segs_in:3 data_segs_out:9 data_segs_in:1 send 36303590bps lastsnd:124 lastrcv:2358 lastack:2358 pacing_rate 726025248bps delivery_rate 92177080bps delivered:2 app_limited busy:2357ms unacked:1 retrans:0/5 lost:1 rcv_space:56687 rcv_ssthresh:74385 notsent:486 minrtt:0.768 snd_wnd:74496                                 \n0      0      10.134.0.25:35154 10.132.0.133:2380  users:((\"etcd\",pid=28155,fd=13)) \n\t cubic wscale:7,7 rto:201 rtt:0.508/0.035 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:13 bytes_sent:521605 bytes_acked:521606 bytes_received:5804 segs_out:90 segs_in:50 data_segs_out:86 data_segs_in:25 send 1811606299bps lastsnd:852 lastrcv:852 lastack:852 pacing_rate 3618760376bps delivery_rate 917390928bps delivered:87 app_limited busy:14ms rcv_space:56687 rcv_ssthresh:74385 minrtt:0.413 snd_wnd:656768                                                                                              \n0      0      10.134.0.25:2380  10.132.0.133:33404 users:((\"etcd\",pid=28155,fd=660))\n\t cubic wscale:7,7 rto:205 rtt:4.657/8.036 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 bytes_sent:3940 bytes_acked:3940 bytes_received:3448 segs_out:9 segs_in:10 data_segs_out:6 data_segs_in:3 send 152012025bps lastsnd:33 lastrcv:861 lastack:33 pacing_rate 303966936bps delivery_rate 221918488bps delivered:7 app_limited busy:43ms rcv_space:56675 rcv_ssthresh:80449 minrtt:0.464 snd_wnd:85888                                                                                                           \n0      0      10.134.0.25:2380  10.132.0.133:33390 users:((\"etcd\",pid=28155,fd=573))\n\t cubic wscale:7,7 rto:201 rtt:0.654/0.268 ato:40 mss:8849 pmtu:8901 rcvmss:1519 advmss:8849 cwnd:10 bytes_sent:5695 bytes_acked:5695 bytes_received:3449 segs_out:33 segs_in:35 data_segs_out:31 data_segs_in:3 send 1082446483bps lastsnd:21 lastrcv:861 lastack:21 pacing_rate 2164892960bps delivery_rate 240380304bps delivered:32 app_limited busy:55ms rcv_rtt:1 rcv_space:56675 rcv_ssthresh:80449 minrtt:0.442 snd_wnd:80128                                                                                            \n",
+  "deltas": [
+    {
+      "connection": "10.134.0.25:35156 10.132.0.133:2380",
+      "deltas": {
+        "bytes_sent": 518050,
+        "bytes_acked": 518050,
+        "bytes_received": 2952
+      }
+    },
+    {
+      "connection": "10.134.0.25:35172 10.132.0.133:2380",
+      "deltas": {
+        "bytes_sent": 475537,
+        "bytes_acked": 475537,
+        "bytes_received": 3019
+      }
+    },
+    {
+      "connection": "10.134.0.25:35184 10.132.0.133:2380",
+      "deltas": {
+        "bytes_sent": 0,
+        "bytes_acked": 0,
+        "bytes_received": 8133
+      }
+    },
+    {
+      "connection": "10.134.0.25:35186 10.132.0.133:2380",
+      "deltas": {
+        "bytes_sent": 0,
+        "bytes_acked": 0,
+        "bytes_received": 169
+      }
+    },
+    {
+      "connection": "10.134.0.25:35154 10.132.0.133:2380",
+      "deltas": {
+        "bytes_sent": 518100,
+        "bytes_acked": 518100,
+        "bytes_received": 2952
+      }
+    }
+  ],
+  "snapshot": {
+    "time": "2026-11-19T01:48:36.359870+00:00",
+    "cluster_id": "1c5079ca30cbbd35",
+    "member_id": "9160386341df7a4b",
+    "members": [
+      {
+        "id": "3a3d2cf07731e037",
+        "name": "etcd-2",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.133.0.54",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "4196559839082700855",
+            "revision": "105835",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "111526",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111526",
+          "dbSizeInUse": "24870912"
+        }
+      },
+      {
+        "id": "9160386341df7a4b",
+        "name": "etcd-1",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.134.0.25",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "10475434732221856331",
+            "revision": "105835",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "111526",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111526",
+          "dbSizeInUse": "24846336"
+        }
+      },
+      {
+        "id": "d44c1b554fa67639",
+        "name": "etcd-0",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.132.0.133",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "15297632087493211705",
+            "revision": "105835",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "64036864",
+          "leader": "10475434732221856331",
+          "raftIndex": "111526",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111526",
+          "dbSizeInUse": "24858624"
+        }
+      }
+    ],
+    "active_peers": {
+      "3a3d2cf07731e037": 1,
+      "961113c1699ee884": 0,
+      "d44c1b554fa67639": 1
+    },
+    "quorum": {
+      "voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "healthy_voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "required": 2,
+      "available": true
+    },
+    "leader": "9160386341df7a4b",
+    "term": 3
+  }
+}

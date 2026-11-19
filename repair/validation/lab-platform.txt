@@ -1,0 +1,5 @@
+Python 3.9.21
+ss utility, iproute2-6.11.0
+nsenter from util-linux 2.37.4
+crictl version 1.35.0
+Linux 5.14.0-687.44.1.el9_8.x86_64 x86_64

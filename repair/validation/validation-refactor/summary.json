@@ -1,0 +1,53 @@
+{
+  "runs": [
+    {
+      "scenario": "three serving voters",
+      "collection_sha256": "d46976369b21f9987fa27f99a84ebabd76c873ce363d59143b2bc64d6c51b040",
+      "tested_script_sha256": "abd3c0bacfea97f542cbf11e4061da2c8e15062c156687db023f2f5392ad6463",
+      "repair_audit": {
+        "artifact": "validation-refactor/20261119T014608Z/repair-stdout.json",
+        "sha256": "5420ba5d6c518bbcd4dc17067e7ccc275944f18afd08c81e3213196a06979f67"
+      },
+      "healthy_voters_before": 3,
+      "socket_closes": 1,
+      "outcome": "reconnected_and_verified",
+      "health_checks": {
+        "etcd-0": 73,
+        "etcd-1": 73,
+        "etcd-2": 73
+      },
+      "failed_health_checks": {
+        "etcd-0": 0,
+        "etcd-1": 0,
+        "etcd-2": 0
+      },
+      "verification_snapshots": 10,
+      "pvc_and_membership_preserved": true
+    },
+    {
+      "scenario": "two serving voters; third rejoins during verification",
+      "collection_sha256": "30076735d872bf5ad5bd4ea77f81f4ac4c6d33cc82bf6733fab173f1b1534347",
+      "tested_script_sha256": "abd3c0bacfea97f542cbf11e4061da2c8e15062c156687db023f2f5392ad6463",
+      "repair_audit": {
+        "artifact": "validation-refactor/20261119T014807Z/repair-stdout.json",
+        "sha256": "bef6d9eb4b00f8eddaee74056f634d169d03348f7c9c33ecb870b0ba22bbb76c"
+      },
+      "healthy_voters_before": 2,
+      "socket_closes": 1,
+      "outcome": "reconnected_and_verified",
+      "health_checks": {
+        "etcd-0": 35,
+        "etcd-1": 35,
+        "etcd-2": 35
+      },
+      "failed_health_checks": {
+        "etcd-0": 0,
+        "etcd-1": 0,
+        "etcd-2": 18
+      },
+      "verification_snapshots": 10,
+      "pvc_and_membership_preserved": true
+    }
+  ],
+  "only_catalog_evidence_changed_after_live_tests": true
+}

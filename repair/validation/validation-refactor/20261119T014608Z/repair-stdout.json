@@ -1,0 +1,2347 @@
+{
+  "version": "0.3.0",
+  "started": "2026-11-19T01:46:59.899569+00:00",
+  "mode": "repair",
+  "mutations": [
+    {
+      "destroyed": {
+        "local_ip": "10.134.0.25",
+        "local_port": 57088,
+        "remote_ip": "10.132.0.132",
+        "remote_port": 2380,
+        "cookie": [
+          4111,
+          0
+        ],
+        "inode": 5827000,
+        "state": 1
+      },
+      "time": "2026-11-19T01:47:01.361626+00:00"
+    }
+  ],
+  "verification": [
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:01.518158+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105639",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111321",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111321",
+              "dbSizeInUse": "24498176"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105638",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111320",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111320",
+              "dbSizeInUse": "24477696"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105639",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111321",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111321",
+              "dbSizeInUse": "24502272"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:02.668955+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105643",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111325",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111325",
+              "dbSizeInUse": "24494080"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105644",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111326",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111326",
+              "dbSizeInUse": "24473600"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105643",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111325",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111325",
+              "dbSizeInUse": "24498176"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:03.821021+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105650",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111333",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111333",
+              "dbSizeInUse": "24510464"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105650",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111333",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111333",
+              "dbSizeInUse": "24481792"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105650",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111333",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111333",
+              "dbSizeInUse": "24514560"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:04.973920+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105651",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111334",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111334",
+              "dbSizeInUse": "24502272"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105651",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111334",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111334",
+              "dbSizeInUse": "24481792"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105651",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111334",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111334",
+              "dbSizeInUse": "24506368"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:06.132899+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105653",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111336",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111336",
+              "dbSizeInUse": "24506368"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105653",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111336",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111336",
+              "dbSizeInUse": "24485888"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105653",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111336",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111336",
+              "dbSizeInUse": "24510464"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:07.293241+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105656",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111339",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111339",
+              "dbSizeInUse": "24522752"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105656",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111339",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111339",
+              "dbSizeInUse": "24502272"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105656",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111339",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111339",
+              "dbSizeInUse": "24526848"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:08.453961+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105660",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111343",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111343",
+              "dbSizeInUse": "24539136"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105660",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111343",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111343",
+              "dbSizeInUse": "24518656"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105660",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111343",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111343",
+              "dbSizeInUse": "24543232"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:09.616807+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105665",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111348",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111348",
+              "dbSizeInUse": "24530944"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105665",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111348",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111348",
+              "dbSizeInUse": "24510464"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105665",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111348",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111348",
+              "dbSizeInUse": "24535040"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:10.778645+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105666",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111349",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111349",
+              "dbSizeInUse": "24530944"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105666",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111349",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111349",
+              "dbSizeInUse": "24510464"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105666",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111349",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111349",
+              "dbSizeInUse": "24535040"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": false
+      }
+    },
+    {
+      "snapshot": {
+        "time": "2026-11-19T01:47:11.901289+00:00",
+        "cluster_id": "1c5079ca30cbbd35",
+        "member_id": "9160386341df7a4b",
+        "members": [
+          {
+            "id": "3a3d2cf07731e037",
+            "name": "etcd-2",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.133.0.54",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "4196559839082700855",
+                "revision": "105669",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111352",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111352",
+              "dbSizeInUse": "24535040"
+            }
+          },
+          {
+            "id": "9160386341df7a4b",
+            "name": "etcd-1",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.134.0.25",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "10475434732221856331",
+                "revision": "105669",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "63569920",
+              "leader": "10475434732221856331",
+              "raftIndex": "111352",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111352",
+              "dbSizeInUse": "24514560"
+            }
+          },
+          {
+            "id": "d44c1b554fa67639",
+            "name": "etcd-0",
+            "is_learner": false,
+            "healthy": true,
+            "peer_urls": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "probe_errors": [],
+            "ip": "10.132.0.132",
+            "status": {
+              "header": {
+                "cluster_id": "2040264540507847989",
+                "member_id": "15297632087493211705",
+                "revision": "105669",
+                "raft_term": "3"
+              },
+              "version": "3.5.26",
+              "dbSize": "64036864",
+              "leader": "10475434732221856331",
+              "raftIndex": "111352",
+              "raftTerm": "3",
+              "raftAppliedIndex": "111352",
+              "dbSizeInUse": "24539136"
+            }
+          }
+        ],
+        "active_peers": {
+          "3a3d2cf07731e037": 1,
+          "961113c1699ee884": 0,
+          "d44c1b554fa67639": 1
+        },
+        "quorum": {
+          "voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "healthy_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ],
+          "required": 2,
+          "available": true
+        },
+        "leader": "9160386341df7a4b",
+        "term": 3
+      },
+      "decision": {
+        "indexes": {
+          "3a3d2cf07731e037": 111318,
+          "9160386341df7a4b": 111317,
+          "d44c1b554fa67639": 111318
+        },
+        "stable_since": 0.15559639899584,
+        "anchor": [
+          "9160386341df7a4b",
+          3
+        ],
+        "eligibility": {
+          "eligible": true,
+          "quorum": {
+            "voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "healthy_voter_ids": [
+              "3a3d2cf07731e037",
+              "9160386341df7a4b",
+              "d44c1b554fa67639"
+            ],
+            "required": 2,
+            "available": true
+          },
+          "checks": [
+            {
+              "check": "expected_cluster",
+              "passed": true,
+              "reason": "expected cluster ID mismatch"
+            },
+            {
+              "check": "expected_member",
+              "passed": true,
+              "reason": "expected local member ID mismatch"
+            },
+            {
+              "check": "voting_quorum",
+              "passed": true,
+              "reason": "healthy voting quorum is unavailable"
+            },
+            {
+              "check": "distinct_peer",
+              "passed": true,
+              "reason": "selected peer must be another voter"
+            },
+            {
+              "check": "selected_pair",
+              "passed": true,
+              "reason": "local and selected peer must both be healthy current voters"
+            },
+            {
+              "check": "stable_identity",
+              "passed": true,
+              "reason": "cluster/process identity changed"
+            }
+          ]
+        },
+        "progress": {
+          "indexes": {
+            "3a3d2cf07731e037": 111318,
+            "9160386341df7a4b": 111317,
+            "d44c1b554fa67639": 111318
+          },
+          "progressed": true,
+          "advanced_voter_ids": [
+            "3a3d2cf07731e037",
+            "9160386341df7a4b",
+            "d44c1b554fa67639"
+          ]
+        },
+        "complete": true
+      }
+    }
+  ],
+  "target": {
+    "container_id": "6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875",
+    "process": {
+      "pid": 28155,
+      "start_ticks": "282728",
+      "exe_inode": 289449562,
+      "netns_inode": 4026533536
+    },
+    "facts": {
+      "executable_sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+      "architecture": "x86_64",
+      "image_ref": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9acdb320c8a4441eda48ca9d8ba8a775bd541d21243dba72195f444c932ecb3f",
+      "kernel_release": "5.14.0-687.44.1.el9_8.x86_64"
+    },
+    "settings": {
+      "listen-client-urls": "https://10.134.0.25:2379,https://localhost:2379",
+      "listen-peer-urls": "https://10.134.0.25:2380",
+      "listen-metrics-urls": "https://0.0.0.0:2382",
+      "name": "etcd-1",
+      "advertise-client-urls": "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+    },
+    "support": {
+      "supported": true,
+      "selected": {
+        "profile_id": "openshift-etcd-3.5.26-amd64",
+        "revision": 1,
+        "profile_sha256": "4ddfad50962318dbed07707c2949ab4fff90be229ca17f100a7691d0b22397f4",
+        "checks": [
+          {
+            "property": "executable_sha256",
+            "expected": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+            "observed": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+            "matched": true
+          },
+          {
+            "property": "architecture",
+            "expected": "x86_64",
+            "observed": "x86_64",
+            "matched": true
+          }
+        ],
+        "matched": true
+      },
+      "candidates": [
+        {
+          "profile_id": "openshift-etcd-3.5.26-amd64",
+          "revision": 1,
+          "profile_sha256": "4ddfad50962318dbed07707c2949ab4fff90be229ca17f100a7691d0b22397f4",
+          "checks": [
+            {
+              "property": "executable_sha256",
+              "expected": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+              "observed": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+              "matched": true
+            },
+            {
+              "property": "architecture",
+              "expected": "x86_64",
+              "observed": "x86_64",
+              "matched": true
+            }
+          ],
+          "matched": true
+        }
+      ],
+      "reason": "unique validated binary profile",
+      "observed_facts": {
+        "executable_sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+        "architecture": "x86_64",
+        "image_ref": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9acdb320c8a4441eda48ca9d8ba8a775bd541d21243dba72195f444c932ecb3f",
+        "kernel_release": "5.14.0-687.44.1.el9_8.x86_64"
+      }
+    }
+  },
+  "support": {
+    "supported": true,
+    "selected": {
+      "profile_id": "openshift-etcd-3.5.26-amd64",
+      "revision": 1,
+      "profile_sha256": "4ddfad50962318dbed07707c2949ab4fff90be229ca17f100a7691d0b22397f4",
+      "checks": [
+        {
+          "property": "executable_sha256",
+          "expected": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+          "observed": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+          "matched": true
+        },
+        {
+          "property": "architecture",
+          "expected": "x86_64",
+          "observed": "x86_64",
+          "matched": true
+        }
+      ],
+      "matched": true
+    },
+    "candidates": [
+      {
+        "profile_id": "openshift-etcd-3.5.26-amd64",
+        "revision": 1,
+        "profile_sha256": "4ddfad50962318dbed07707c2949ab4fff90be229ca17f100a7691d0b22397f4",
+        "checks": [
+          {
+            "property": "executable_sha256",
+            "expected": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+            "observed": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+            "matched": true
+          },
+          {
+            "property": "architecture",
+            "expected": "x86_64",
+            "observed": "x86_64",
+            "matched": true
+          }
+        ],
+        "matched": true
+      }
+    ],
+    "reason": "unique validated binary profile",
+    "observed_facts": {
+      "executable_sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+      "architecture": "x86_64",
+      "image_ref": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9acdb320c8a4441eda48ca9d8ba8a775bd541d21243dba72195f444c932ecb3f",
+      "kernel_release": "5.14.0-687.44.1.el9_8.x86_64"
+    }
+  },
+  "validation": {
+    "result": "live single-reader repair verified",
+    "evidence": [
+      {
+        "artifact": "lab-repair-stdout.json",
+        "sha256": "330a9ed48d0f43e4eb7ac47d81b46ad586639fef2a0366fff8afe224360e696a"
+      },
+      {
+        "artifact": "lab-health-monitor-summary.json",
+        "sha256": "2ef953b72f12fe7f56e4c46ebd5af088d5e003d3c1053aea215141eb336d94f7"
+      },
+      {
+        "artifact": "lab-platform.txt",
+        "sha256": "5aaf8e7d23f83aef30f8ac4612c86075c2af7712862f1789191a623cb8cfb5eb"
+      }
+    ],
+    "tested_context": {
+      "etcd_version": "3.5.26",
+      "openshift_version": "4.20.23",
+      "healthy_voters": 3,
+      "voters": 3,
+      "kernel": "5.14.0-687.44.1.el9_8.x86_64"
+    },
+    "coverage_notes": [
+      "Two-of-three quorum is accepted by live safety policy; degraded-quorum live repair has not yet been validated."
+    ],
+    "match_policy": "Only executable hash and architecture are compatibility gates. Context is evidence, not an exact-environment requirement."
+  },
+  "before": {
+    "time": "2026-11-19T01:47:00.122021+00:00",
+    "cluster_id": "1c5079ca30cbbd35",
+    "member_id": "9160386341df7a4b",
+    "members": [
+      {
+        "id": "3a3d2cf07731e037",
+        "name": "etcd-2",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.133.0.54",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "4196559839082700855",
+            "revision": "105635",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "111316",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111316",
+          "dbSizeInUse": "24485888"
+        }
+      },
+      {
+        "id": "9160386341df7a4b",
+        "name": "etcd-1",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.134.0.25",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "10475434732221856331",
+            "revision": "105635",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "111316",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111316",
+          "dbSizeInUse": "24465408"
+        }
+      },
+      {
+        "id": "d44c1b554fa67639",
+        "name": "etcd-0",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.132.0.132",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "15297632087493211705",
+            "revision": "105635",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "64036864",
+          "leader": "10475434732221856331",
+          "raftIndex": "111316",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111316",
+          "dbSizeInUse": "24489984"
+        }
+      }
+    ],
+    "active_peers": {
+      "3a3d2cf07731e037": 1,
+      "961113c1699ee884": 0,
+      "d44c1b554fa67639": 0
+    },
+    "quorum": {
+      "voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "healthy_voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "required": 2,
+      "available": true
+    },
+    "leader": "9160386341df7a4b",
+    "term": 3
+  },
+  "eligibility": {
+    "eligible": true,
+    "quorum": {
+      "voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "healthy_voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "required": 2,
+      "available": true
+    },
+    "checks": [
+      {
+        "check": "expected_cluster",
+        "passed": true,
+        "reason": "expected cluster ID mismatch"
+      },
+      {
+        "check": "expected_member",
+        "passed": true,
+        "reason": "expected local member ID mismatch"
+      },
+      {
+        "check": "voting_quorum",
+        "passed": true,
+        "reason": "healthy voting quorum is unavailable"
+      },
+      {
+        "check": "distinct_peer",
+        "passed": true,
+        "reason": "selected peer must be another voter"
+      },
+      {
+        "check": "selected_pair",
+        "passed": true,
+        "reason": "local and selected peer must both be healthy current voters"
+      }
+    ]
+  },
+  "applicability": {
+    "applicable": true,
+    "already_active": false,
+    "metric": 0,
+    "reason": "inactive current peer"
+  },
+  "candidate": {
+    "poll_fd_pointer": 824791043328,
+    "kind": "msgappv2",
+    "goroutine": "goroutine 229 [IO wait]:",
+    "fd": 31,
+    "socket": {
+      "local_ip": "10.134.0.25",
+      "local_port": 57088,
+      "remote_ip": "10.132.0.132",
+      "remote_port": 2380,
+      "cookie": [
+        4111,
+        0
+      ],
+      "inode": 5827000,
+      "state": 1
+    },
+    "peer_id": "d44c1b554fa67639",
+    "peer_ip": "10.132.0.132"
+  },
+  "pre_close": {
+    "time": "2026-11-19T01:47:00.826658+00:00",
+    "cluster_id": "1c5079ca30cbbd35",
+    "member_id": "9160386341df7a4b",
+    "members": [
+      {
+        "id": "3a3d2cf07731e037",
+        "name": "etcd-2",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.133.0.54",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "4196559839082700855",
+            "revision": "105637",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "111318",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111318",
+          "dbSizeInUse": "24489984"
+        }
+      },
+      {
+        "id": "9160386341df7a4b",
+        "name": "etcd-1",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.134.0.25",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "10475434732221856331",
+            "revision": "105636",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "111317",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111317",
+          "dbSizeInUse": "24469504"
+        }
+      },
+      {
+        "id": "d44c1b554fa67639",
+        "name": "etcd-0",
+        "is_learner": false,
+        "healthy": true,
+        "peer_urls": [
+          "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+        ],
+        "probe_errors": [],
+        "ip": "10.132.0.132",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "15297632087493211705",
+            "revision": "105637",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "64036864",
+          "leader": "10475434732221856331",
+          "raftIndex": "111318",
+          "raftTerm": "3",
+          "raftAppliedIndex": "111318",
+          "dbSizeInUse": "24489984"
+        }
+      }
+    ],
+    "active_peers": {
+      "3a3d2cf07731e037": 1,
+      "961113c1699ee884": 0,
+      "d44c1b554fa67639": 0
+    },
+    "quorum": {
+      "voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "healthy_voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "required": 2,
+      "available": true
+    },
+    "leader": "9160386341df7a4b",
+    "term": 3
+  },
+  "pre_close_eligibility": {
+    "eligible": true,
+    "quorum": {
+      "voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "healthy_voter_ids": [
+        "3a3d2cf07731e037",
+        "9160386341df7a4b",
+        "d44c1b554fa67639"
+      ],
+      "required": 2,
+      "available": true
+    },
+    "checks": [
+      {
+        "check": "expected_cluster",
+        "passed": true,
+        "reason": "expected cluster ID mismatch"
+      },
+      {
+        "check": "expected_member",
+        "passed": true,
+        "reason": "expected local member ID mismatch"
+      },
+      {
+        "check": "voting_quorum",
+        "passed": true,
+        "reason": "healthy voting quorum is unavailable"
+      },
+      {
+        "check": "distinct_peer",
+        "passed": true,
+        "reason": "selected peer must be another voter"
+      },
+      {
+        "check": "selected_pair",
+        "passed": true,
+        "reason": "local and selected peer must both be healthy current voters"
+      },
+      {
+        "check": "stable_identity",
+        "passed": true,
+        "reason": "cluster/process identity changed"
+      },
+      {
+        "check": "fresh_membership",
+        "passed": true,
+        "reason": "membership or voting roles changed before close"
+      }
+    ]
+  },
+  "close_attempted": true,
+  "outcome": "reconnected_and_verified",
+  "finished": "2026-11-19T01:47:11.912585+00:00"
+}

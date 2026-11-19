@@ -32,7 +32,7 @@ VERSION = "0.3.0"
 SUPPORT_CATALOG = (
     {
         "id": "openshift-etcd-3.5.26-amd64",
-        "revision": 2,
+        "revision": 3,
         "compatibility": {
             "executable_sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
             "architecture": "x86_64"
@@ -48,15 +48,15 @@ SUPPORT_CATALOG = (
             "result": "live single-reader repair verified",
             "evidence": [
                 {
-                    "artifact": "lab-repair-stdout.json",
+                    "artifact": "validation/lab-repair-stdout.json",
                     "sha256": "330a9ed48d0f43e4eb7ac47d81b46ad586639fef2a0366fff8afe224360e696a"
                 },
                 {
-                    "artifact": "lab-health-monitor-summary.json",
+                    "artifact": "validation/lab-health-monitor-summary.json",
                     "sha256": "2ef953b72f12fe7f56e4c46ebd5af088d5e003d3c1053aea215141eb336d94f7"
                 },
                 {
-                    "artifact": "lab-platform.txt",
+                    "artifact": "validation/lab-platform.txt",
                     "sha256": "5aaf8e7d23f83aef30f8ac4612c86075c2af7712862f1789191a623cb8cfb5eb"
                 }
             ],
@@ -78,24 +78,36 @@ SUPPORT_CATALOG = (
                     "collection_sha256": "d46976369b21f9987fa27f99a84ebabd76c873ce363d59143b2bc64d6c51b040",
                     "tested_script_sha256": "abd3c0bacfea97f542cbf11e4061da2c8e15062c156687db023f2f5392ad6463",
                     "repair_audit": {
-                        "artifact": "validation-refactor/20261119T014608Z/repair-stdout.json",
+                        "artifact": "validation/validation-refactor/20261119T014608Z/repair-stdout.json",
                         "sha256": "5420ba5d6c518bbcd4dc17067e7ccc275944f18afd08c81e3213196a06979f67"
                     },
                     "healthy_voters_before": 3,
                     "socket_closes": 1,
-                    "outcome": "reconnected_and_verified"
+                    "outcome": "reconnected_and_verified",
+                    "collection_artifact": "validation/validation-refactor/20261119T014608Z/collection.json",
+                    "tested_script_artifact": "validation/validation-refactor/implementation-tested.py",
+                    "health_observations": {
+                        "artifact": "validation/validation-refactor/20261119T014608Z/repair-health.jsonl",
+                        "sha256": "5d19975b0867ad34f168cf7c7805e82272031d15a0a4622a453b7a1a73828e8a"
+                    }
                 },
                 {
                     "scenario": "two serving voters; third rejoins during verification",
                     "collection_sha256": "30076735d872bf5ad5bd4ea77f81f4ac4c6d33cc82bf6733fab173f1b1534347",
                     "tested_script_sha256": "abd3c0bacfea97f542cbf11e4061da2c8e15062c156687db023f2f5392ad6463",
                     "repair_audit": {
-                        "artifact": "validation-refactor/20261119T014807Z/repair-stdout.json",
+                        "artifact": "validation/validation-refactor/20261119T014807Z/repair-stdout.json",
                         "sha256": "bef6d9eb4b00f8eddaee74056f634d169d03348f7c9c33ecb870b0ba22bbb76c"
                     },
                     "healthy_voters_before": 2,
                     "socket_closes": 1,
-                    "outcome": "reconnected_and_verified"
+                    "outcome": "reconnected_and_verified",
+                    "collection_artifact": "validation/validation-refactor/20261119T014807Z/collection.json",
+                    "tested_script_artifact": "validation/validation-refactor/implementation-tested.py",
+                    "health_observations": {
+                        "artifact": "validation/validation-refactor/20261119T014807Z/repair-health.jsonl",
+                        "sha256": "d174b007523bab1247cbcff62a8d9abe164ccf5942e27eed7560b8941b94b2e2"
+                    }
                 }
             ]
         }

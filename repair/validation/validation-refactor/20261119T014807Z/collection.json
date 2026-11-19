@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "collector_version": "3.0.0",
+  "started_at": "2026-11-19T01:48:42.992034+00:00",
+  "collection_status": "completed",
+  "checks": {
+    "etcd_version": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "etcd Version: 3.5.26\nGit SHA: 524f3a42\nGo Version: go1.24.13 (Red Hat 1.24.13-4.el9_6) X:strictfipsruntime\nGo OS/Arch: linux/amd64\n",
+      "stderr": ""
+    },
+    "dns_configuration": {
+      "status": "ok",
+      "value": "search clusters-dmace-vivid-pike-guest.svc.cluster.local svc.cluster.local cluster.local ec2.internal\nnameserver 172.31.0.10\noptions ndots:5"
+    },
+    "peer_certificate": {
+      "status": "ok",
+      "exit_code": 0,
+      "stdout": "subject=O=kubernetes, CN=etcd-discovery\nissuer=OU=openshift, CN=etcd-signer\nnotBefore=Nov 18 16:07:59 2026 GMT\nnotAfter=Nov 18 16:07:59 2027 GMT\nX509v3 Subject Alternative Name: \n    DNS:*.etcd-discovery.clusters-dmace-vivid-pike-guest.svc, DNS:*.etcd-discovery.clusters-dmace-vivid-pike-guest.svc.cluster.local, DNS:127.0.0.1, DNS:::1\n",
+      "stderr": ""
+    },
+    "etcd_status": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "data": [
+        {
+          "Endpoint": "https://localhost:2379",
+          "Status": {
+            "header": {
+              "cluster_id": 2040264540507847989,
+              "member_id": 10475434732221856331,
+              "revision": 105845,
+              "raft_term": 3
+            },
+            "version": "3.5.26",
+            "dbSize": 63569920,
+            "leader": 10475434732221856331,
+            "raftIndex": 111536,
+            "raftTerm": 3,
+            "raftAppliedIndex": 111536,
+            "dbSizeInUse": 24883200
+          }
+        }
+      ]
+    },
+    "etcd_members": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "data": {
+        "header": {
+          "cluster_id": 2040264540507847989,
+          "member_id": 10475434732221856331,
+          "raft_term": 3
+        },
+        "members": [
+          {
+            "ID": 4196559839082700855,
+            "name": "etcd-2",
+            "peerURLs": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "clientURLs": [
+              "https://etcd-2.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+            ]
+          },
+          {
+            "ID": 10475434732221856331,
+            "name": "etcd-1",
+            "peerURLs": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "clientURLs": [
+              "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+            ]
+          },
+          {
+            "ID": 15297632087493211705,
+            "name": "etcd-0",
+            "peerURLs": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+            ],
+            "clientURLs": [
+              "https://etcd-0.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379"
+            ]
+          }
+        ]
+      }
+    },
+    "etcd_health": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "data": [
+        {
+          "endpoint": "https://localhost:2379",
+          "health": true,
+          "took": "5.796131ms"
+        }
+      ]
+    },
+    "active_peers": {
+      "status": "ok",
+      "exit_code": 0,
+      "stderr": "",
+      "samples": [
+        {
+          "labels": {
+            "Local": "9160386341df7a4b",
+            "Remote": "3a3d2cf07731e037"
+          },
+          "value": 1
+        },
+        {
+          "labels": {
+            "Local": "9160386341df7a4b",
+            "Remote": "961113c1699ee884"
+          },
+          "value": 0
+        },
+        {
+          "labels": {
+            "Local": "9160386341df7a4b",
+            "Remote": "d44c1b554fa67639"
+          },
+          "value": 0
+        }
+      ],
+      "raw": "# HELP etcd_network_active_peers The current number of active peer connections.\n# TYPE etcd_network_active_peers gauge\netcd_network_active_peers{Local=\"9160386341df7a4b\",Remote=\"3a3d2cf07731e037\"} 1\netcd_network_active_peers{Local=\"9160386341df7a4b\",Remote=\"961113c1699ee884\"} 0\netcd_network_active_peers{Local=\"9160386341df7a4b\",Remote=\"d44c1b554fa67639\"} 0\n"
+    }
+  },
+  "runtime_endpoint": "unix:///run/crio/crio.sock",
+  "runtime_endpoint_source": "argument",
+  "scope": "read-only diagnostics; no key contents, datastore files, full environment or full CRI responses",
+  "artifacts": {
+    "report": "/tmp/etcd-host-report-_4azp3bx/report.json",
+    "working_directory": "/tmp/etcd-host-report-_4azp3bx",
+    "archive": "/tmp/etcd-host-report-_4azp3bx.tar.gz",
+    "checksum": "/tmp/etcd-host-report-_4azp3bx.tar.gz.sha256"
+  },
+  "host": {
+    "kernel_release": "5.14.0-687.44.1.el9_8.x86_64",
+    "architecture": "x86_64",
+    "os_release": {
+      "status": "ok",
+      "data": {
+        "ID": "rhel",
+        "VERSION_ID": "9.6"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "id": "6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875",
+      "namespace": "clusters-dmace-vivid-pike-guest",
+      "pod": "etcd-1"
+    }
+  ],
+  "process": {
+    "pid": 28155,
+    "start_ticks": "282728",
+    "container_id": "6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875",
+    "image": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9acdb320c8a4441eda48ca9d8ba8a775bd541d21243dba72195f444c932ecb3f",
+    "image_ref": "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:9acdb320c8a4441eda48ca9d8ba8a775bd541d21243dba72195f444c932ecb3f",
+    "pod": {
+      "io.kubernetes.pod.name": "etcd-1",
+      "io.kubernetes.pod.namespace": "clusters-dmace-vivid-pike-guest"
+    }
+  },
+  "configuration": {
+    "env": {
+      "ETCD_TRUSTED_CA_FILE": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "ETCD_LISTEN_CLIENT_URLS": "https://10.134.0.25:2379,https://localhost:2379",
+      "ETCD_LISTEN_PEER_URLS": "https://10.134.0.25:2380",
+      "ETCD_LISTEN_METRICS_URLS": "https://0.0.0.0:2382",
+      "ETCD_PEER_TRUSTED_CA_FILE": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "ETCD_NAME": "etcd-1",
+      "ETCD_PEER_CLIENT_CERT_AUTH": "true",
+      "ETCD_KEY_FILE": "/etc/etcd/tls/server/server.key",
+      "ETCD_PEER_KEY_FILE": "/etc/etcd/tls/peer/peer.key",
+      "ETCD_CLIENT_CERT_AUTH": "true",
+      "ETCD_PEER_CERT_FILE": "/etc/etcd/tls/peer/peer.crt",
+      "ETCD_ADVERTISE_CLIENT_URLS": "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2379",
+      "ETCD_CERT_FILE": "/etc/etcd/tls/server/server.crt",
+      "ETCD_INITIAL_ADVERTISE_PEER_URLS": "https://etcd-1.etcd-discovery.clusters-dmace-vivid-pike-guest.svc:2380"
+    },
+    "flags": {}
+  },
+  "executable": {
+    "source": "/proc/28155/exe",
+    "inode": 289449562,
+    "sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+    "exported_file": "etcd-executable"
+  },
+  "tls": {
+    "container_paths": {
+      "ca": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "cert": "/etc/etcd/tls/client/etcd-client.crt",
+      "key": "/etc/etcd/tls/client/etcd-client.key"
+    },
+    "files": {
+      "ca": {
+        "status": "ok"
+      },
+      "cert": {
+        "status": "ok"
+      },
+      "key": {
+        "status": "ok"
+      }
+    }
+  },
+  "process_identity_verified_at_end": true,
+  "finished_at": "2026-11-19T01:48:43.310378+00:00"
+}

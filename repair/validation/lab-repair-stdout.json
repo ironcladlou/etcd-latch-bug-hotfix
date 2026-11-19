@@ -1,0 +1,885 @@
+{
+  "version": "0.1.0",
+  "started": "2026-11-19T00:21:44.814349+00:00",
+  "mode": "repair",
+  "mutations": [
+    {
+      "destroyed": {
+        "local_ip": "10.134.0.25",
+        "local_port": 57944,
+        "remote_ip": "10.132.0.123",
+        "remote_port": 2380,
+        "cookie": [
+          40974,
+          0
+        ],
+        "inode": 4297301,
+        "state": 1
+      },
+      "time": "2026-11-19T00:21:46.171714+00:00"
+    }
+  ],
+  "verification": [
+    {
+      "time": "2026-11-19T00:21:46.328289+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94667",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99749",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99749",
+            "dbSizeInUse": "22740992"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94667",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99749",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99749",
+            "dbSizeInUse": "22691840"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94667",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99749",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99749",
+            "dbSizeInUse": "22708224"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:47.486108+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94672",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99754",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99754",
+            "dbSizeInUse": "22745088"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94672",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99754",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99754",
+            "dbSizeInUse": "22695936"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94672",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99754",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99754",
+            "dbSizeInUse": "22712320"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:48.642384+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94673",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99755",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99755",
+            "dbSizeInUse": "22745088"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94673",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99755",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99755",
+            "dbSizeInUse": "22695936"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94673",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99755",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99755",
+            "dbSizeInUse": "22712320"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:49.798183+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94674",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99756",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99756",
+            "dbSizeInUse": "22745088"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94674",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99756",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99756",
+            "dbSizeInUse": "22700032"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94674",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99756",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99756",
+            "dbSizeInUse": "22716416"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:50.955795+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94675",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99757",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99757",
+            "dbSizeInUse": "22745088"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94675",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99757",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99757",
+            "dbSizeInUse": "22700032"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94675",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99757",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99757",
+            "dbSizeInUse": "22716416"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:52.113004+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94676",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99758",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99758",
+            "dbSizeInUse": "22745088"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94675",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99757",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99757",
+            "dbSizeInUse": "22700032"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94676",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99758",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99758",
+            "dbSizeInUse": "22716416"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:53.275914+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94677",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99759",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99759",
+            "dbSizeInUse": "22749184"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94677",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99759",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99759",
+            "dbSizeInUse": "22700032"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94677",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99759",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99759",
+            "dbSizeInUse": "22716416"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:54.424950+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94677",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99759",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99759",
+            "dbSizeInUse": "22749184"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94677",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99759",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99759",
+            "dbSizeInUse": "22700032"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94677",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99759",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99759",
+            "dbSizeInUse": "22716416"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:55.582118+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94678",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99760",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99760",
+            "dbSizeInUse": "22749184"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94678",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99760",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99760",
+            "dbSizeInUse": "22704128"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94678",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99760",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99760",
+            "dbSizeInUse": "22720512"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    },
+    {
+      "time": "2026-11-19T00:21:56.742548+00:00",
+      "cluster_id": "1c5079ca30cbbd35",
+      "member_id": "9160386341df7a4b",
+      "members": [
+        {
+          "id": "3a3d2cf07731e037",
+          "name": "etcd-2",
+          "ip": "10.133.0.54",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "4196559839082700855",
+              "revision": "94679",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99761",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99761",
+            "dbSizeInUse": "22749184"
+          }
+        },
+        {
+          "id": "9160386341df7a4b",
+          "name": "etcd-1",
+          "ip": "10.134.0.25",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "10475434732221856331",
+              "revision": "94679",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "63569920",
+            "leader": "10475434732221856331",
+            "raftIndex": "99761",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99761",
+            "dbSizeInUse": "22704128"
+          }
+        },
+        {
+          "id": "d44c1b554fa67639",
+          "name": "etcd-0",
+          "ip": "10.132.0.123",
+          "status": {
+            "header": {
+              "cluster_id": "2040264540507847989",
+              "member_id": "15297632087493211705",
+              "revision": "94679",
+              "raft_term": "3"
+            },
+            "version": "3.5.26",
+            "dbSize": "64036864",
+            "leader": "10475434732221856331",
+            "raftIndex": "99761",
+            "raftTerm": "3",
+            "raftAppliedIndex": "99761",
+            "dbSizeInUse": "22720512"
+          }
+        }
+      ],
+      "active_peers": {
+        "3a3d2cf07731e037": 1,
+        "961113c1699ee884": 0,
+        "d44c1b554fa67639": 1
+      },
+      "leader": "9160386341df7a4b",
+      "term": 3
+    }
+  ],
+  "target": {
+    "container_id": "6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875",
+    "process": {
+      "pid": 28155,
+      "start_ticks": "282728",
+      "exe_inode": 289449562,
+      "netns_inode": 4026533536
+    },
+    "sha256": "9fd1e8e4f0577c14b18d665f1d4403390c50dd1f8b1eead09754ee4f1727ea66",
+    "profile": {
+      "name": "OpenShift 4.20.23 HyperShift etcd 3.5.26 linux/amd64",
+      "machine": "x86_64",
+      "pointer_size": 8,
+      "byteorder": "little",
+      "sysfd_offset": 16,
+      "stream_type": "msgAppV2Decoder",
+      "ca": "/etc/etcd/tls/etcd-ca/ca.crt",
+      "cert": "/etc/etcd/tls/client/etcd-client.crt",
+      "key": "/etc/etcd/tls/client/etcd-client.key",
+      "client_port": 2379,
+      "metrics_port": 2382
+    }
+  },
+  "before": {
+    "time": "2026-11-19T00:21:45.034153+00:00",
+    "cluster_id": "1c5079ca30cbbd35",
+    "member_id": "9160386341df7a4b",
+    "members": [
+      {
+        "id": "3a3d2cf07731e037",
+        "name": "etcd-2",
+        "ip": "10.133.0.54",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "4196559839082700855",
+            "revision": "94665",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "99747",
+          "raftTerm": "3",
+          "raftAppliedIndex": "99747",
+          "dbSizeInUse": "22736896"
+        }
+      },
+      {
+        "id": "9160386341df7a4b",
+        "name": "etcd-1",
+        "ip": "10.134.0.25",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "10475434732221856331",
+            "revision": "94665",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "63569920",
+          "leader": "10475434732221856331",
+          "raftIndex": "99747",
+          "raftTerm": "3",
+          "raftAppliedIndex": "99747",
+          "dbSizeInUse": "22687744"
+        }
+      },
+      {
+        "id": "d44c1b554fa67639",
+        "name": "etcd-0",
+        "ip": "10.132.0.123",
+        "status": {
+          "header": {
+            "cluster_id": "2040264540507847989",
+            "member_id": "15297632087493211705",
+            "revision": "94665",
+            "raft_term": "3"
+          },
+          "version": "3.5.26",
+          "dbSize": "64036864",
+          "leader": "10475434732221856331",
+          "raftIndex": "99747",
+          "raftTerm": "3",
+          "raftAppliedIndex": "99747",
+          "dbSizeInUse": "22704128"
+        }
+      }
+    ],
+    "active_peers": {
+      "3a3d2cf07731e037": 1,
+      "961113c1699ee884": 0,
+      "d44c1b554fa67639": 0
+    },
+    "leader": "9160386341df7a4b",
+    "term": 3
+  },
+  "candidate": {
+    "poll_fd_pointer": 824814085632,
+    "kind": "msgappv2",
+    "goroutine": "goroutine 229 [IO wait]:",
+    "fd": 17,
+    "socket": {
+      "local_ip": "10.134.0.25",
+      "local_port": 57944,
+      "remote_ip": "10.132.0.123",
+      "remote_port": 2380,
+      "cookie": [
+        40974,
+        0
+      ],
+      "inode": 4297301,
+      "state": 1
+    },
+    "peer_id": "d44c1b554fa67639",
+    "peer_ip": "10.132.0.123"
+  },
+  "ss_before": "ESTAB 0      0      10.134.0.25:40420 10.132.0.123:2380 users:((\"etcd\",pid=28155,fd=573)) timer:(keepalive,17sec,0) uid:1000650000 ino:4316845 sk:e001 cgroup:/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-podc949002a_4a1e_424e_a391_80bac53a3561.slice/crio-6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875.scope <->\n\t ts sack cubic wscale:7,7 rto:201 rtt:0.573/0.021 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:208377 bytes_acked:208378 bytes_received:211802 segs_out:2393 segs_in:1198 data_segs_out:1196 data_segs_in:1195 send 1235462478bps lastsnd:950 lastrcv:949 lastack:949 pacing_rate 2470386040bps delivery_rate 247957968bps delivered:1197 app_limited busy:700ms rcv_rtt:342987 rcv_space:64977 rcv_ssthresh:350207 minrtt:0.425 snd_wnd:85504   \nESTAB 0      0      10.134.0.25:57948 10.132.0.123:2380 users:((\"etcd\",pid=28155,fd=31))  timer:(keepalive,11sec,0) uid:1000650000 ino:4300080 sk:a00b cgroup:/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-podc949002a_4a1e_424e_a391_80bac53a3561.slice/crio-6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875.scope <->\n\t ts sack cubic wscale:7,7 rto:201 rtt:0.599/0.012 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:303718 bytes_acked:303719 bytes_received:231789 segs_out:2421 segs_in:1225 data_segs_out:1223 data_segs_in:1213 send 1181836394bps lastsnd:2261 lastrcv:2260 lastack:2260 pacing_rate 2363672784bps delivery_rate 303828320bps delivered:1224 app_limited busy:758ms rcv_rtt:190562 rcv_space:65072 rcv_ssthresh:351363 minrtt:0.45 snd_wnd:105728\nESTAB 0      0      10.134.0.25:57946 10.132.0.123:2380 users:((\"etcd\",pid=28155,fd=19))  timer:(keepalive,24sec,0) uid:1000650000 ino:4294621 sk:a00c cgroup:/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-podc949002a_4a1e_424e_a391_80bac53a3561.slice/crio-6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875.scope <->\n\t ts sack cubic wscale:7,7 rto:201 rtt:0.644/0.275 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3449 bytes_acked:3450 bytes_received:13214639 segs_out:146330 segs_in:146499 data_segs_out:3 data_segs_in:146496 send 1099254658bps lastsnd:4778587 lastrcv:67 lastack:67 pacing_rate 2197229872bps delivery_rate 277615680bps delivered:4 app_limited busy:1ms rcv_rtt:30223 rcv_space:166718 rcv_ssthresh:1050527 minrtt:0.441 snd_wnd:80512    \nESTAB 0      0      10.134.0.25:57944 10.132.0.123:2380 users:((\"etcd\",pid=28155,fd=17))  timer:(keepalive,21sec,0) uid:1000650000 ino:4297301 sk:a00e cgroup:/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-podc949002a_4a1e_424e_a391_80bac53a3561.slice/crio-6425fab35bdf34868773fb7f91918973465a20413aa016b9f9fbf16df5b57875.scope <->\n\t ts sack cubic wscale:7,7 rto:201 rtt:0.64/0.263 ato:40 mss:8849 pmtu:8901 rcvmss:2852 advmss:8849 cwnd:10 bytes_sent:3448 bytes_acked:3449 bytes_received:83269 segs_out:2873 segs_in:2871 data_segs_out:3 data_segs_in:2868 send 1106125000bps lastsnd:4778589 lastrcv:580 lastack:580 pacing_rate 2210091704bps delivery_rate 261707944bps delivered:4 app_limited busy:2ms rcv_rtt:466784 rcv_space:64957 rcv_ssthresh:80089 minrtt:0.453 snd_wnd:80512              \n",
+  "close_attempted": true,
+  "outcome": "reconnected_and_verified",
+  "finished": "2026-11-19T00:21:56.752152+00:00"
+}

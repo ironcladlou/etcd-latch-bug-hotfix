@@ -23,7 +23,7 @@ sequenceDiagram
     Note over T,B: No process restart or membership change
 ```
 
-[Rendered diagram](mechanism.png)
+[Rendered diagram](mechanism.png) · [Validation evidence](validation/README.md)
 
 ## Safety
 
