@@ -10,19 +10,20 @@ import os
 import pathlib
 import platform
 import re
-import shutil
-import ssl
 import subprocess
 import sys
 import tarfile
 import tempfile
 
-VERSION = "2.0.0"
+VERSION = "3.0.0"
+SCHEMA_VERSION = 2
 ALLOWED = {"name", "advertise-client-urls", "listen-client-urls",
            "initial-advertise-peer-urls", "listen-peer-urls", "trusted-ca-file",
            "cert-file", "key-file", "peer-trusted-ca-file", "peer-cert-file",
            "peer-key-file", "client-cert-auth", "peer-client-cert-auth",
-           "listen-metrics-urls"}
+           "listen-metrics-urls", "strict-reconfig-check", "heartbeat-interval",
+           "election-timeout", "peer-skip-client-san-verification",
+           "peer-cert-allowed-cn", "peer-cert-allowed-hostname"}
 
 
 def utc():
@@ -73,7 +74,9 @@ def start_ticks(pid):
     return text[text.rfind(")") + 2:].split()[19]
 
 
-def process_metadata(detail):
+def collect_container_identity(cri, container_id):
+    """Select only the container identity and pin its running etcd process."""
+    detail = cri_json(cri + ["inspect", container_id])
     info = detail.get("info", {})
     if isinstance(info, str):
         info = json.loads(info)
@@ -82,34 +85,37 @@ def process_metadata(detail):
     root = pathlib.Path("/proc/{}".format(pid))
     if pid <= 1 or (root / "comm").read_text().strip() != "etcd":
         raise RuntimeError("selected running process is not etcd")
-    start = start_ticks(pid)
-    env, flags = {}, {}
-    for item in (root / "environ").read_bytes().split(b"\0"):
+    labels = status.get("labels", {})
+    return {"pid": pid, "start_ticks": start_ticks(pid),
+            "container_id": status.get("id"),
+            "image": status.get("image", {}).get("image"), "image_ref": status.get("imageRef"),
+            "pod": {k: labels.get(k) for k in ["io.kubernetes.pod.name", "io.kubernetes.pod.namespace"]}}
+
+
+def collect_etcd_environment(pid):
+    """Read only reproduction-relevant ETCD_* settings; never dump the environment."""
+    env = {}
+    for item in pathlib.Path("/proc/{}/environ".format(pid)).read_bytes().split(b"\0"):
         key, sep, value = item.partition(b"=")
         key = key.decode("utf-8", "replace")
         if sep and key.startswith("ETCD_") and key[5:].lower().replace("_", "-") in ALLOWED:
             env[key] = value.decode("utf-8", "replace")
-    argv = (root / "cmdline").read_bytes().decode("utf-8", "replace").split("\0")
+    return env
+
+
+def collect_etcd_arguments(pid):
+    """Read the same allowlisted settings from command-line flags."""
+    flags = {}
+    argv = pathlib.Path("/proc/{}/cmdline".format(pid)).read_bytes().decode("utf-8", "replace").split("\0")
     for i, arg in enumerate(argv):
         key, eq, value = arg[2:].partition("=") if arg.startswith("--") else ("", "", "")
         if key in ALLOWED:
             flags[key] = value if eq else (argv[i+1] if i+1 < len(argv) else "")
-    labels = status.get("labels", {})
-    meta = {"pid": pid, "start_ticks": start, "container_id": status.get("id"),
-            "image": status.get("image", {}).get("image"), "image_ref": status.get("imageRef"),
-            "pod": {k: labels.get(k) for k in ["io.kubernetes.pod.name", "io.kubernetes.pod.namespace"]},
-            "env": env, "flags": flags, "netns": os.readlink(str(root / "ns/net"))}
-    try:
-        fd = os.open(str(root / "mem"), os.O_RDONLY)
-        os.close(fd)
-        meta["proc_mem_open"] = {"status": "ok", "memory_read": False}
-    except OSError as e:
-        meta["proc_mem_open"] = {"status": "failed", "memory_read": False, "error": str(e)}
-    return meta
+    return flags
 
 
-def executable(pid, destination=None):
-    # One open file pins the executable across hashing and optional export.
+def collect_executable(pid, destination=None):
+    """Hash and optionally export the same open executable to reproduce its bits."""
     digest = hashlib.sha256()
     source = "/proc/{}/exe".format(pid)
     with open(source, "rb") as src:
@@ -126,7 +132,7 @@ def executable(pid, destination=None):
             "exported_file": destination.name if destination else None}
 
 
-def active_peers(result):
+def parse_active_peer_metrics(result):
     raw, samples = [], []
     if result["status"] == "ok":
         for line in result.get("stdout", "").splitlines():
@@ -153,64 +159,184 @@ def read_check(path):
         return {"status": "unavailable", "error": str(e)}
 
 
+def collect_host_os():
+    """Record only OS identity/version, not vendor links or unrelated release metadata."""
+    result = read_check("/etc/os-release")
+    if result["status"] == "ok":
+        fields = {}
+        for line in result.pop("value").splitlines():
+            key, sep, value = line.partition("=")
+            if sep and key in {"ID", "VERSION_ID"}:
+                fields[key] = value.strip('"')
+        result["data"] = fields
+    return result
+
+
+def collect_host():
+    """Identify the kernel, architecture and host OS needed to match the platform."""
+    return {"kernel_release": platform.release(), "architecture": platform.machine(),
+            "os_release": collect_host_os()}
+
+
+def collect_container_candidates(cri):
+    """List running etcd candidates without exporting the raw CRI response."""
+    data = cri_json(cri + ["ps", "--name", "^etcd$", "-o", "json"])
+    return [{"id": c.get("id"), "namespace": c.get("labels", {}).get("io.kubernetes.pod.namespace"),
+             "pod": c.get("labels", {}).get("io.kubernetes.pod.name")}
+            for c in data.get("containers", []) if c.get("metadata", {}).get("name") == "etcd"]
+
+
+def collect_etcd_version(cri, container_id):
+    """Record etcd, Go and build versions from the selected container."""
+    return command(cri + ["exec", container_id, "etcd", "--version"])
+
+
+def collect_dns_configuration(pid):
+    """Capture the container resolver configuration used by peer SAN lookups."""
+    return read_check("/proc/{}/root/etc/resolv.conf".format(pid))
+
+
+def container_path(pid, value):
+    """Validate a mounted path before any host-side credential/certificate access."""
+    path = pathlib.PurePosixPath(value)
+    if not path.is_absolute() or ".." in path.parts:
+        raise ValueError("container path must be absolute and contain no ..")
+    return "/proc/{}/root{}".format(pid, value)
+
+
+def collect_client_tls_paths(pid, args):
+    """Record credential paths and readability, without reading their contents."""
+    paths = {"ca": args.cacert, "cert": args.cert, "key": args.key}
+    files = {}
+    for name, value in paths.items():
+        try:
+            readable = os.access(container_path(pid, value), os.R_OK)
+            files[name] = {"status": "ok" if readable else "failed"}
+            if not readable:
+                files[name]["error"] = "path is not readable"
+        except ValueError as error:
+            files[name] = {"status": "failed", "error": str(error)}
+    return {"container_paths": paths, "files": files}
+
+
+def collect_peer_certificate(pid, configuration):
+    """Record the public peer certificate identity, validity and SANs for TLS reproduction."""
+    path = configuration["flags"].get("peer-cert-file") or configuration["env"].get("ETCD_PEER_CERT_FILE")
+    if not path:
+        return {"status": "skipped", "reason": "peer certificate path not configured"}
+    try:
+        mounted = container_path(pid, path)
+    except ValueError as error:
+        return {"status": "failed", "error": str(error)}
+    return command(["openssl", "x509", "-in", mounted, "-noout", "-subject", "-issuer",
+                    "-dates", "-ext", "subjectAltName"])
+
+
+def etcdctl_command(cri, container_id, args):
+    """Build authenticated local diagnostics with bounded dial and request times."""
+    return cri + ["exec", container_id, "etcdctl", "--endpoints=https://localhost:2379",
+                  "--cacert=" + args.cacert, "--cert=" + args.cert, "--key=" + args.key,
+                  "--dial-timeout=3s", "--command-timeout=5s"]
+
+
+def collect_etcd_status(ctl):
+    """Record local member/cluster IDs, leader, term and applied index."""
+    return json_result(command(ctl + ["endpoint", "status", "-w", "json"]))
+
+
+def collect_etcd_members(ctl):
+    """Record current voters/learners and advertised client/peer URLs."""
+    return json_result(command(ctl + ["member", "list", "-w", "json"]))
+
+
+def collect_etcd_health(ctl):
+    """Check whether the selected member currently serves an authenticated health probe."""
+    return json_result(command(ctl + ["endpoint", "health", "-w", "json"]))
+
+
+def collect_active_peers(pid, args):
+    """Capture only the peer-status metric, using verified TLS in the etcd netns."""
+    result = command(["nsenter", "-t", str(pid), "-n", "--", "curl", "--silent",
+                      "--show-error", "--fail", "--max-time", "8", "--noproxy", "*",
+                      "--cacert", container_path(pid, args.cacert),
+                      "--cert", container_path(pid, args.cert),
+                      "--key", container_path(pid, args.key),
+                      "https://localhost:2382/metrics"], timeout=12)
+    return parse_active_peer_metrics(result)
+
+
+def verify_process_identity(process, executable):
+    """Reject a report mixing observations from a restarted process or changed binary."""
+    pid = process["pid"]
+    if (start_ticks(pid) != process["start_ticks"] or
+            os.stat("/proc/{}/exe".format(pid)).st_ino != executable["inode"]):
+        raise RuntimeError("process or executable changed during collection; rerun")
+
+
 def collect(args, report, work):
-    checks = report["checks"]
-    report["host"] = {"kernel_release": platform.release(), "architecture": platform.machine(),
-                      "os_release": read_check("/etc/os-release"),
-                      "python_version": sys.version, "openssl_version": ssl.OPENSSL_VERSION}
-    for name, cmd in [("crictl", ["crictl", "--version"]), ("ss", ["ss", "-V"]),
-                      ("nsenter", ["nsenter", "--version"]), ("curl", ["curl", "--version"]),
-                      ("selinux", ["getenforce"])]:
-        checks[name] = command(cmd)
-    checks["ptrace_scope"] = read_check("/proc/sys/kernel/yama/ptrace_scope")
+    """Collection order; each named operation owns the evidence it gathers."""
+    report["host"] = collect_host()
     cri = ["crictl"]
     if args.runtime_endpoint:
         cri += ["--runtime-endpoint", args.runtime_endpoint]
     cid = args.container
     if not cid:
-        data = cri_json(cri + ["ps", "--name", "^etcd$", "-o", "json"])
-        candidates = [c for c in data.get("containers", []) if c.get("metadata", {}).get("name") == "etcd"]
-        report["candidates"] = [{"id": c.get("id"), "namespace": c.get("labels", {}).get("io.kubernetes.pod.namespace"),
-                                 "pod": c.get("labels", {}).get("io.kubernetes.pod.name")} for c in candidates]
-        if len(candidates) != 1:
+        report["candidates"] = collect_container_candidates(cri)
+        if len(report["candidates"]) != 1:
             raise RuntimeError("expected one etcd container; select --container ID")
-        cid = candidates[0]["id"]
-    meta = process_metadata(cri_json(cri + ["inspect", cid]))
-    report["process"] = meta
-    pid = meta["pid"]
-    report["executable"] = executable(pid, work / "etcd-executable" if args.include_binary else None)
-    checks["executable_format"] = command(["file", "-L", "/proc/{}/exe".format(pid)])
-    checks["etcd_version"] = command(cri + ["exec", cid, "etcd", "--version"])
-    checks["peer_sockets"] = command(["nsenter", "-t", str(pid), "-n", "--", "ss", "-Hntie",
-                                       "( sport = :2380 or dport = :2380 )"])
-    paths = {"ca": args.cacert, "cert": args.cert, "key": args.key}
-    tls = report["tls"] = {"container_paths": paths, "files": {}}
-    for name, value in paths.items():
-        path = pathlib.PurePosixPath(value)
-        valid = path.is_absolute() and ".." not in path.parts
-        readable = valid and os.access("/proc/{}/root{}".format(pid, value), os.R_OK)
-        tls["files"][name] = {"status": "ok" if readable else "failed",
-                              "error": None if readable else "path must be absolute, contain no .., and be readable"}
-    if all(x["status"] == "ok" for x in tls["files"].values()):
-        root = "/proc/{}/root".format(pid)
-        checks["client_certificate"] = command(["openssl", "x509", "-in", root + args.cert,
-            "-noout", "-subject", "-issuer", "-dates", "-ext", "subjectAltName"])
-        ctl = cri + ["exec", cid, "etcdctl", "--endpoints=https://localhost:2379",
-                     "--cacert=" + args.cacert, "--cert=" + args.cert, "--key=" + args.key,
-                     "--dial-timeout=3s", "--command-timeout=5s"]
-        for name, cmd in [("etcd_status", ["endpoint", "status"]),
-                          ("etcd_members", ["member", "list"]), ("etcd_health", ["endpoint", "health"])]:
-            checks[name] = json_result(command(ctl + cmd + ["-w", "json"]))
-        checks["active_peers"] = active_peers(command(["nsenter", "-t", str(pid), "-n", "--",
-            "curl", "--silent", "--show-error", "--fail", "--max-time", "8", "--noproxy", "*",
-            "--cacert", root + args.cacert, "--cert", root + args.cert, "--key", root + args.key,
-            "https://localhost:2382/metrics"], timeout=12))
+        cid = report["candidates"][0]["id"]
+    report["process"] = collect_container_identity(cri, cid)
+    pid = report["process"]["pid"]
+    report["configuration"] = {}
+    report["configuration"]["env"] = collect_etcd_environment(pid)
+    report["configuration"]["flags"] = collect_etcd_arguments(pid)
+    report["executable"] = collect_executable(pid, work / "etcd-executable" if args.include_binary else None)
+    report["tls"] = collect_client_tls_paths(pid, args)
+    checks = report["checks"]
+    checks["etcd_version"] = collect_etcd_version(cri, cid)
+    checks["dns_configuration"] = collect_dns_configuration(pid)
+    checks["peer_certificate"] = collect_peer_certificate(pid, report["configuration"])
+    if all(x["status"] == "ok" for x in report["tls"]["files"].values()):
+        ctl = etcdctl_command(cri, cid, args)
+        checks["etcd_status"] = collect_etcd_status(ctl)
+        checks["etcd_members"] = collect_etcd_members(ctl)
+        checks["etcd_health"] = collect_etcd_health(ctl)
+        checks["active_peers"] = collect_active_peers(pid, args)
     else:
-        for name in ["client_certificate", "etcd_status", "etcd_members", "etcd_health", "active_peers"]:
+        for name in ["etcd_status", "etcd_members", "etcd_health", "active_peers"]:
             checks[name] = {"status": "skipped", "reason": "client TLS paths unavailable or invalid"}
-    if start_ticks(pid) != meta["start_ticks"] or os.stat("/proc/{}/exe".format(pid)).st_ino != report["executable"]["inode"]:
-        raise RuntimeError("process or executable changed during collection; rerun")
+    verify_process_identity(report["process"], report["executable"])
     report["process_identity_verified_at_end"] = True
+
+
+def create_output_directory(args, report):
+    """Create a private working directory and record the artifact paths."""
+    work = pathlib.Path(tempfile.mkdtemp(prefix="etcd-host-report-", dir=args.output_dir)).resolve()
+    report["artifacts"] = {"report": str(work / "report.json"), "working_directory": str(work),
+                           "archive": str(work) + ".tar.gz", "checksum": str(work) + ".tar.gz.sha256"}
+    return work
+
+
+def write_report(work, report):
+    """Persist the same JSON object that will be emitted on stdout."""
+    (work / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+
+
+def create_archive(work, archive):
+    """Package the report and optional executable; include no other working files."""
+    with tarfile.open(str(archive), "w:gz") as tar:
+        tar.add(str(work / "report.json"), arcname=work.name + "/report.json")
+        if (work / "etcd-executable").exists():
+            tar.add(str(work / "etcd-executable"), arcname=work.name + "/etcd-executable")
+
+
+def write_archive_checksum(archive):
+    """Write a SHA-256 sidecar for the generated archive."""
+    digest = hashlib.sha256()
+    with open(str(archive), "rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    pathlib.Path(str(archive) + ".sha256").write_text(digest.hexdigest() + "  " + archive.name + "\n")
 
 
 def main():
@@ -225,7 +351,7 @@ def main():
     parser.add_argument("--version", action="version", version=VERSION)
     args = parser.parse_args()
     os.umask(0o077)
-    report = {"schema_version": 1, "collector_version": VERSION, "started_at": utc(),
+    report = {"schema_version": SCHEMA_VERSION, "collector_version": VERSION, "started_at": utc(),
               "collection_status": "failed", "checks": {},
               "runtime_endpoint": args.runtime_endpoint,
               "runtime_endpoint_source": "argument" if args.runtime_endpoint else "host crictl configuration",
@@ -234,10 +360,7 @@ def main():
     try:
         if sys.platform != "linux" or os.geteuid() != 0:
             raise RuntimeError("run as root on the Linux etcd host")
-        work = pathlib.Path(tempfile.mkdtemp(prefix="etcd-host-report-", dir=args.output_dir)).resolve()
-        archive = pathlib.Path(str(work) + ".tar.gz")
-        report["artifacts"] = {"report": str(work / "report.json"), "working_directory": str(work),
-                               "archive": str(archive), "checksum": str(archive) + ".sha256"}
+        work = create_output_directory(args, report)
         collect(args, report, work)
         report["collection_status"] = "completed"
     except (OSError, ValueError, KeyError, TypeError, RuntimeError) as e:
@@ -245,22 +368,15 @@ def main():
     report["finished_at"] = utc()
     if work:
         try:
-            # This exact object is both retained in the archive and emitted on stdout.
-            (work / "report.json").write_text(json.dumps(report, indent=2) + "\n")
-            with tarfile.open(str(archive), "w:gz") as tar:
-                tar.add(str(work / "report.json"), arcname=work.name + "/report.json")
-                if (work / "etcd-executable").exists():
-                    tar.add(str(work / "etcd-executable"), arcname=work.name + "/etcd-executable")
-            digest = hashlib.sha256()
-            with open(str(archive), "rb") as stream:
-                for block in iter(lambda: stream.read(1024 * 1024), b""):
-                    digest.update(block)
-            pathlib.Path(str(archive) + ".sha256").write_text(digest.hexdigest() + "  " + archive.name + "\n")
+            write_report(work, report)
+            archive = pathlib.Path(report["artifacts"]["archive"])
+            create_archive(work, archive)
+            write_archive_checksum(archive)
         except OSError as e:
             report.update(collection_status="failed", packaging_error=str(e))
             # Keep the partial JSON current even when archive generation failed.
             try:
-                (work / "report.json").write_text(json.dumps(report, indent=2) + "\n")
+                write_report(work, report)
             except OSError:
                 pass
     print(json.dumps(report, indent=2))

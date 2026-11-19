@@ -1,30 +1,35 @@
-# Example JSON output
+# Example JSON report
 
-[report.json](report.json) is a sanitized, abridged example report.
-It illustrates both stdout and the `report.json` saved inside the archive:
+[report.json](report.json) illustrates both stdout and the `report.json` inside
+the archive:
 
 ```sh
 sudo bash collect-etcd-host.sh --include-binary > collection.json
 ```
 
-Send back the archive and checksum whose paths appear under `artifacts` in that
-JSON. The archive contains `report.json` and, with `--include-binary`, the
-`etcd-executable` file. Process metadata is inside the report. The working
-directory is retained locally.
+Send back the archive and checksum named under `artifacts`. The archive contains
+`report.json` and, with `--include-binary`, `etcd-executable`. No executable or
+archive is included in this example.
 
-Names, addresses, container/member/cluster identifiers, hashes, and artifact
-paths are illustrative replacements. Socket output is shortened. Software
-versions are illustrative; they are not prerequisites. No executable or
-archive is included in these examples.
+Identities, addresses, hashes, certificate metadata, resolver settings and
+artifact paths are illustrative placeholders. Software versions describe an
+example build; they are not requirements.
 
-Etcd responses are JSON values under `checks.etcd_status.data`,
+Etcd responses appear under `checks.etcd_status.data`,
 `checks.etcd_members.data`, and `checks.etcd_health.data`. Peer metrics have both
-`checks.active_peers.samples` and `checks.active_peers.raw`.
-The zero-valued sample for remote ID `5555` refers to a removed member, absent
-from the current member list. It does not indicate a failure of a current peer.
-Decimal member IDs in etcdctl JSON correspond to hexadecimal metric labels
-(`8738` = `2222`, `13107` = `3333`, `17476` = `4444`).
+`checks.active_peers.samples` and `checks.active_peers.raw`. Configuration is
+under `configuration.env` and `configuration.flags`.
 
-The unavailable `file` and `getenforce` tools demonstrate per-check errors. The
-report still has `collection_status: "completed"`; that describes collection,
-not cluster health or repair eligibility. No socket destruction is attempted.
+The zero-valued metric for remote ID `5555` refers to a removed member, absent
+from the member list. Decimal member IDs in etcdctl JSON correspond to hexadecimal
+metric labels (`8738` = `2222`, `13107` = `3333`, `17476` = `4444`). Match metrics
+to current membership before interpreting a zero as a current peer failure.
+
+Per-check errors have a status and diagnostic error or stderr, for example:
+
+```json
+{"status": "unavailable", "exit_code": null, "error": "[Errno 2] No such file or directory: 'openssl'"}
+```
+
+A report can have `collection_status: "completed"` while individual checks fail.
+That status describes collection, not cluster health or repair eligibility.
