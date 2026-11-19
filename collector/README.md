@@ -14,10 +14,22 @@ and `artifacts.checksum`:
 python3 -c 'import json; r=json.load(open("collection.json")); print(r["artifacts"]["archive"]); print(r["artifacts"]["checksum"])'
 ```
 
-The optional executable lets us reproduce the exact build and validate its
-SHA-256. Omit `--include-binary` if initially sharing JSON only. Reports contain
-internal names, addresses and file paths. Private keys, datastore files, full
-CRI responses and unrelated environment settings are excluded.
+With `--include-binary`, the archive contains two separate files:
+
+```text
+etcd-host-report-…/
+├── report.json
+└── etcd-executable
+```
+
+The executable is a standalone binary file, not embedded or encoded in JSON.
+The report records its SHA-256 and filename under `executable`. This lets us
+reproduce the exact build and validate binary compatibility. Without
+`--include-binary`, the archive contains only `report.json`; the executable hash
+is still recorded and `executable.exported_file` is null.
+
+Reports contain internal names, addresses and file paths. Private keys,
+datastore files, full CRI responses and unrelated environment settings are excluded.
 
 ## What is collected and why
 

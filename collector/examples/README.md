@@ -8,7 +8,8 @@ sudo bash collect-etcd-host.sh --include-binary > collection.json
 ```
 
 Send back the archive and checksum named under `artifacts`. The archive contains
-`report.json` and, with `--include-binary`, `etcd-executable`. No executable or
+`report.json` and, with `--include-binary`, a separate `etcd-executable` binary
+file. JSON contains its hash and filename, never its bytes. No executable or
 archive is included in this example.
 
 Identities, addresses, hashes, certificate metadata, resolver settings and
